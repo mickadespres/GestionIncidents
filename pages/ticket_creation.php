@@ -30,7 +30,7 @@ require_once('header.html');
                                     <form role="form">
                                       <fieldset disabled>
                                           <div class="form-group">
-                                              <label for="disabledSelect">Numéro demande</label>
+                                              <label for="disabledSelect">N° Identifiant </label>
                                               <input class="form-control" id="disabledInput" type="text" placeholder="0594563" disabled>
                                             </br>
                                           </div>
