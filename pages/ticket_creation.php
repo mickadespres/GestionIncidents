@@ -31,15 +31,18 @@ require_once('header.html');
                                           <div class="form-group">
                                               <label for="disabledSelect">Numéro demande</label>
                                               <input class="form-control" id="disabledInput" type="text" placeholder="0594563" disabled>
+                                            </br>
                                           </div>
                                       </fieldset>
                                         <div class="form-group">
                                             <label>Objet</label>
                                             <input class="form-control" placeholder="Décrivez succintement votre incident">
+                                            </br>
                                         </div>
                                         <div class="form-group">
                                             <label>Description</label>
                                             <textarea class="form-control" rows="3"></textarea>
+                                            </br>
                                         </div>
                                         <div class="form-group">
                                             <label>Catégorie(s)</label>
@@ -58,6 +61,8 @@ require_once('header.html');
                                                     <input type="checkbox" name="choix[]" value="res">RESEAU
                                                 </label>
                                             </div>
+                                            </br>
+                                          </div>
                                         <div class="form-group">
                                             <label>Priorité</label>
                                             <select class="form-control">
@@ -66,6 +71,7 @@ require_once('header.html');
                                                 <option value="mod">MODERE</option>
                                                 <option value="hau">HAUT</option>
                                             </select>
+                                            </br>
                                         </div>
                                         <div class="form-group">
                                             <label>Date limite de résolution</label>
@@ -75,18 +81,22 @@ require_once('header.html');
                                                 <option value="2s">2 SEMAINES</option>
                                                 <option value="1m">1 MOIS</option>
                                             </select>
+                                            </br>
                                         </div>
                                         <div class="form-group">
                                             <label>Localisation</label>
                                             <input class="form-control" placeholder="Entrez IP ou nom de machine">
+                                            </br>
                                         </div>
                                         <div class="form-group">
                                             <label>Pièce jointe</label>
                                             <input type="file">
+                                            </br>
                                         </div>
                                         <div class="form-group">
                                             <label>Commentaires</label>
                                             <textarea class="form-control" rows="3"></textarea>
+                                            </br>
                                         </div>
                                         <button type="submit" class="btn-outline btn-primary btn-lg btn-block">Envoyer</button>
                                     </form>
