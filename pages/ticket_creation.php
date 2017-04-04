@@ -2,13 +2,14 @@
 require_once('header.html');
 ?>
 
-
+<html>
+    <body>
         <!-- Page Content -->
         <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Création de ticket</h1>
+                        <h1 class="page-header"><span class="glyphicon glyphicon-edit"></span> Création de ticket</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -21,7 +22,7 @@ require_once('header.html');
                 <div class="col-lg-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Veuillez renseignez les champs ci-dessous
+                            <span class="glyphicon glyphicon-info-sign"></span> Veuillez renseignez les champs ci-dessous
                         </div>
                         <!-- /.panel-heading-->
                         <div class="panel-body">
