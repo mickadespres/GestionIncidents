@@ -34,14 +34,14 @@ if(!empty($_POST))
     if(empty($email))
     {
         echo '<body onLoad = "alert(\'Veuillez indiquer votre email.\')">';
-        header('Location: login.html');
+        header('Location: login.php');
         die();
     }
     //le mot de passe est-il renseigné ?
     elseif(empty($password))
     {
         echo '<body onLoad = "alert(\'Veuillez renseigner votre mot de passe.\')">';
-        header('Location: login.html');
+        header('Location: login.php');
         die();
     }
     // Le login est-il correct ?
@@ -54,14 +54,14 @@ if(!empty($_POST))
     elseif($password !== $dbPassword OR $email == $dbEmail)
     {
         echo '<body onLoad = "alert(\'Mot de passe erroné.\')">';
-        header('Location: login.html');
+        header('Location: login.php');
         die();
     }
     else
     {
       // On redirige vers la page connectée
         echo '<body onLoad = "alert(\'Bienvenue .\')">';
-        header('Location:index.html');
+        header('Location:login.php');
         die();   
     }
 }

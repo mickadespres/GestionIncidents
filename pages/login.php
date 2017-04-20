@@ -1,4 +1,4 @@
-<?php $auth 0; ?>
+<?php $auth = 0; ?>
 <?php include '../input/includes.php' ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -31,7 +31,7 @@ body{
 </head>
 
 <body>
-    <form action="traitement.php" method="POST">
+    <form action="#" method="POST">
         
     <div class="container">
     <div class="row">
@@ -53,7 +53,7 @@ body{
                             <fieldset>
                                 <div class="form-group input-group">
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                    <input type="email" class="form-control" placeholder="E-mail" name="email" id="email" value="<?php if(isset($_POST['email'])){echo $_POST['email']; } ?>" autofocus>
+                                    <?= input('email'); ?>
                                 </div>
                                 <div class="form-group input-group">
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
