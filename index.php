@@ -1,3 +1,3 @@
 <?php
-require_once('pages/index.html');
+require_once('pages/index.php');
 ?>

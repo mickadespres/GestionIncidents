@@ -53,7 +53,7 @@ body{
                             <fieldset>
                                 <div class="form-group input-group">
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                    <?= input('email'); ?>
+                                    <?= input('email','Email'); ?>
                                 </div>
                                 <div class="form-group input-group">
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
