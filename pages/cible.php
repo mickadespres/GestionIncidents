@@ -1,5 +1,6 @@
+<?php include '../lib/session.php';?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
 
@@ -48,7 +49,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Gestion d'incident</a>
+                <a class="navbar-brand" href="index.php">Gestion d'incident</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -253,7 +254,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="../lib/logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -277,7 +278,7 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
@@ -358,7 +359,7 @@
                                     <a href="blank.html">Blank Page</a>
                                 </li>
                                 <li>
-                                    <a href="login.html">Login Page</a>
+                                    <a href="../input/login.php">Login Page</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
