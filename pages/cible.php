@@ -1,8 +1,4 @@
-<?php
-include '../input/includes.php';
-?>
-
-
+<?php include '../lib/session.php';?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -258,7 +254,7 @@ include '../input/includes.php';
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="../lib/logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -363,7 +359,7 @@ include '../input/includes.php';
                                     <a href="blank.html">Blank Page</a>
                                 </li>
                                 <li>
-                                    <a href="login.html">Login Page</a>
+                                    <a href="../input/login.php">Login Page</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

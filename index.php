@@ -1,3 +1,3 @@
-<?php
-require_once('pages/index.php');
+<?php 
+include 'lib/includes.php';
 ?>

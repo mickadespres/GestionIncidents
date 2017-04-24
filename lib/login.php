@@ -1,5 +1,21 @@
-<?php $auth = 0; ?>
-<?php include '../input/includes.php' ?>
+<?php
+$auth = 0; 
+include '../lib/includes.php';
+/**
+*Traitement du formulaire
+**/
+if(isset($_POST['email']) && isset($_POST['password'])){
+    $email = $db->quote($_POST['email']);
+    $password = sha1($_POST['password']);
+    $select = $db->query("SELECT * FROM gi_user WHERE email=$email AND password ='$password'");
+    if($select->rowCount() > 0){
+        $_SESSION['Auth']=$select->fetch();
+        setFlash('Vous êtes maintenant connecté.');
+        header('Location: ../pages/cible.php');
+        die();
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -32,6 +48,7 @@ body{
 
 <body>
     <form action="#" method="POST">
+        <!--../pages/traitement.php-->   
         
     <div class="container">
     <div class="row">
