@@ -37,11 +37,9 @@ require_once('header.html');
                                       </fieldset>
                                         <div class="form-group">
                                             <label>Objet</label>
-<<<<<<< HEAD
+
                                             <input name="object" class="form-control" placeholder="Décrivez succintement votre incident">
-=======
-                                            <input class="form-control" placeholder="Décrivez succintement votre incident" autofocus>
->>>>>>> origin/master
+
                                             </br>
                                         </div>
                                         <div class="form-group">
