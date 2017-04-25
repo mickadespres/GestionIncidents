@@ -9,9 +9,11 @@ if(isset($_POST['email']) && isset($_POST['password'])){
     $password = sha1($_POST['password']);
     $select = $db->query("SELECT * FROM gi_user WHERE email=$email AND password ='$password'");
     if($select->rowCount() > 0){
-        $_SESSION['Auth']=$select->fetch();
-        setFlash('Vous êtes maintenant connecté.');
-        header('Location: ../pages/cible.php');
+        $_SESSION['Auth']= $select->fetch();
+        setFlash('Vous êtes maintenant connecté');
+        header('Location:' . WEBROOT . '../pages/cible.php');
+
+//        header('Location: ../pages/cible.php');
         die();
     }
 }
