@@ -51,7 +51,7 @@ $note = htmlspecialchars($_POST['note']);
 
         // On redirige vers la page connecté
         header('Location: ticket_creation.php');
-        exit();
+        die();
     }
       else
     {

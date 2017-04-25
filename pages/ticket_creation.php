@@ -1,5 +1,5 @@
 <?php
-require_once('header.html');
+require_once('header.php');
 ?>
 
 <html>
@@ -33,7 +33,7 @@ require_once('header.html');
                                               <label for="disabledSelect">N° Identifiant </label>
                                               <input class="form-control" id="id_ticket" name="id_ticket" type="text" placeholder="0594563" disabled>
                                             </br>
-                                          </div>
+                                           </div>
                                       </fieldset>
                                         <div class="form-group">
                                             <label>Objet</label>
