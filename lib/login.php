@@ -57,12 +57,16 @@ body{
                 <div class="col-lg-12">
                     <div class="panel-body">
                         <div class="panel-heading">
-                            </br></br>
+                            
                         </div>
                     </div>
                 </div>
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
+                </br>
+                <style>span.glyphicon-dashboard {font-size: 5.0em;}</style>
+                <center><span class="glyphicon glyphicon-dashboard"></span></center>
+                <center><h1 class="display-3">| Gestion Incidents |</h1></center>
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">Veuillez rentrer vos informations de connexion</h3>
