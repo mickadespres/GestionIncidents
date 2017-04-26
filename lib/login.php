@@ -41,7 +41,7 @@ if(isset($_POST['email']) && isset($_POST['password'])){
 
 <style>
 body{
-    background-image: url("../img/fond.jpg");
+    background-image: url("../img/fond.png");
     background-repeat: no-repeat;
     background-size: cover;
     }
@@ -55,18 +55,13 @@ body{
     <div class="container">
     <div class="row">
                 <div class="col-lg-12">
-                    <div class="panel-body">
-                        <div class="panel-heading">
-                            
-                        </div>
-                    </div>
+                    </br>   
                 </div>
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
-                </br>
-                <style>span.glyphicon-dashboard {font-size: 5.0em;}</style>
+                <style>span.glyphicon-dashboard {font-size: 8.0em;}</style>
                 <center><span class="glyphicon glyphicon-dashboard"></span></center>
-                <center><h1 class="display-3">| Gestion Incidents |</h1></center>
+                <center><h1>| Gestion Incidents |</h1></center>
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">Veuillez rentrer vos informations de connexion</h3>
