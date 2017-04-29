@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 $auth = 0; 
 include '../lib/includes.php';
@@ -10,7 +11,8 @@ if(isset($_POST['email']) && isset($_POST['password'])){
     $select = $db->query("SELECT * FROM gi_user WHERE email=$email AND password ='$password'");
     if($select->rowCount() > 0){
         $_SESSION['Auth']= $select->fetch();
-        setFlash('Vous êtes maintenant connecté');
+       $prenom = $_SESSION['Auth']['firstname'];
+        setFlash("Bonjour $prenom, Vous êtes maintenant bien connecté.");
         header('Location:' . WEBROOT . '../pages/cible.php');
 
 //        header('Location: ../pages/cible.php');
@@ -18,7 +20,7 @@ if(isset($_POST['email']) && isset($_POST['password'])){
     }
 }
 ?>
-<!DOCTYPE html>
+
 <html lang="fr">
 
 <head>
