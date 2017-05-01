@@ -1,4 +1,14 @@
-<?php include '../lib/session.php';?>
+<?php include '../lib/session.php';
+
+
+if(!isset($auth)){
+    if(!isset($_SESSION['Auth']['email'])){
+        header('Location:../lib/login.php');
+        die();
+
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
