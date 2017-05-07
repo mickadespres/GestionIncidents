@@ -287,6 +287,9 @@ if(!isset($auth)){
                             <a href="cible.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
+                            <a href="../lib/ticket.php"><i class="fa fa-ticket fa-fw"></i> Listing</a>
+                        </li>
+                        <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
