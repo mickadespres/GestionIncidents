@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-$auth = 0; 
+$auth = 0;
 include '../lib/includes.php';
 /**
 *Traitement du formulaire
@@ -52,18 +52,18 @@ body{
 
 <body>
     <form action="#" method="POST">
-        <!--../pages/traitement.php-->   
-        
+        <!--../pages/traitement.php-->
+
     <div class="container">
     <div class="row">
                 <div class="col-lg-12">
-                    </br>   
+                    </br>
                 </div>
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <style>span.glyphicon-dashboard {font-size: 8.0em;}</style>
                 <center><span class="glyphicon glyphicon-dashboard"></span></center>
-                <center><h1>| Gestion Incidents |</h1></center>
+                <center><h1> Gestion Incidents </h1></center>
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">Veuillez rentrer vos informations de connexion</h3>
@@ -79,7 +79,7 @@ body{
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
                                     <input type="password" class="form-control" placeholder="Password" id="password" name="password">
                                 </div>
-                                
+
                                 <!-- Change this to a button or input when using this as a form -->
                                 <button type="submit" class="btn btn-lg btn-primary btn-outline btn-block">Se connecter</button>
                             </fieldset>
@@ -98,6 +98,6 @@ body{
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
     </form>
-    
+
 </body>
 </html>
