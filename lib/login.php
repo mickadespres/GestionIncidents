@@ -64,10 +64,10 @@ body{
             <div class="col-md-4 col-md-offset-4">
                 <style>span.glyphicon-dashboard {font-size: 8.0em;}</style>
                 <center><span class="glyphicon glyphicon-dashboard"></span></center>
-                <center><h1>| Gestion Incidents |</h1></center>
+                <center><h1> Gestion Incidents </h1></center>
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Veuillez rentrer vos informations de connexion</h3>
+                        <center><h3 class="panel-title">Veuillez rentrer vos informations de connexion</h3></center>
                     </div>
                     <div class="panel-body">
                         <center><?php echo notFlash('warning','Identifiants incorrects');?></center>

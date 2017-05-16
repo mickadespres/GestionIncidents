@@ -443,7 +443,8 @@ $tickets = $select->fetchALL();
         <td><?= $ticket['categorie']; ?></td>
         <td><?= $ticket['date']; ?></td>
         <td>
-            <a href="../pages/ticket_creation.php"?id=<?= $ticket['id'];?> class="btn btn-info"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+            <a href="#"?id=<?= $ticket['id'];?> class="btn btn-default"><i class="fa fa-comments-o" aria-hidden="true"></i></a>
+            <a href="../pages/ticket_creation.php"?id=<?= $ticket['id'];?> class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
             <a href="?delete=<?= $ticket['id']; ?>&<?= csrf(); ?>" onclick="return confirm('Confirmez-vous la supression en cours ?');" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
         </td>
         </tr>

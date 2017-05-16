@@ -31,7 +31,7 @@ require_once('header.php');
                                       <fieldset disabled>
                                           <div class="form-group">
                                               <label for="disabledSelect">N° Identifiant </label>
-                                              <input class="form-control" id="id_ticket" name="id_ticket" type="text" placeholder="0594563" disabled>
+                                              <input class="form-control" id="id_ticket" name="id_ticket" type="text" placeholder="Numéro du ticket" disabled>
                                             </br>
                                            </div>
                                       </fieldset>
