@@ -8,7 +8,7 @@ Supression
 if(isset($_GET['delete'])){
     checkCsrf();
     $id = $db->quote($_GET['delete']);
-    $db->query("DELETE FROM ticket_test WHERE id = $id");
+    $db->query("DELETE FROM ticket_test WHERE id=$id");
     setFlash("Le ticket n°$id a bien été supprimé");
     header('Location:ticket.php');
     die();
@@ -18,7 +18,7 @@ if(isset($_GET['delete'])){
 Tickets
 **/
 
-$select = $db->query('SELECT id, object, statement, description, priority FROM ticket_test');
+$select = $db->query('SELECT id, object, statement, description, priority, categorie, date FROM ticket_test');
 $tickets = $select->fetchALL();
 
 ?>
@@ -409,9 +409,16 @@ $tickets = $select->fetchALL();
                     <h1 class="page-header">Liste des incidents</h1><?php echo flash();?>
                 </div>
                 <!-- /.col-lg-12 -->
-                <p><a href="../pages/ticket_creation.php" class="btn btn-success">Ouvrir un ticket</a></p>
-                
-                <table class="table table-striped">
+                <p><a href="../pages/ticket_creation.php" class="btn btn-success"><span class="fa fa-ticket"></span> Déclarer un nouvel incident</a></p>
+                 <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Liste des incidents présents en base.
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                <table width="100%" class="table table-striped table-bordered table-hover" id="">
     <thead>
         <tr>
             <th>Id</th>
@@ -419,6 +426,10 @@ $tickets = $select->fetchALL();
             <th>Statement</th>
             <th>Description</th>
             <th>Priority</th>
+            <th>Category</th>
+            <th>Date de création</th>
+            <th>Administration</th>
+
         </tr>
     </thead>
     <tbody>
@@ -429,14 +440,14 @@ $tickets = $select->fetchALL();
         <td><?= $ticket['statement']; ?></td>
         <td><?= $ticket['description']; ?></td>
         <td><?= $ticket['priority']; ?></td>
+        <td><?= $ticket['categorie']; ?></td>
+        <td><?= $ticket['date']; ?></td>
         <td>
-            <a href="../pages/ticket_creation.php"?id=<?= $ticket['id']; ?>" class="btn btn-default"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+            <a href="../pages/ticket_creation.php"?id=<?= $ticket['id'];?> class="btn btn-info"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
             <a href="?delete=<?= $ticket['id']; ?>&<?= csrf(); ?>" onclick="return confirm('Confirmez-vous la supression en cours ?');" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
-            </td>
-
+        </td>
         </tr>
         <?php endforeach; ?>
-    
     </tbody>
 </table>
 

@@ -14,9 +14,10 @@ if(isset($_POST['email']) && isset($_POST['password'])){
        $prenom = $_SESSION['Auth']['firstname'];
         setFlash("Bonjour $prenom, Vous êtes maintenant bien connecté.");
         header('Location:' . WEBROOT . '../pages/cible.php');
-
-//        header('Location: ../pages/cible.php');
         die();
+    }
+    else{
+        echo "<script>alert(\"Identifiants incorrects, Veillez à bien vous identifier.\")</script>"; 
     }
 }
 ?>
@@ -69,19 +70,21 @@ body{
                         <h3 class="panel-title">Veuillez rentrer vos informations de connexion</h3>
                     </div>
                     <div class="panel-body">
+                        <center><?php echo notFlash('warning','Identifiants incorrects');?></center>
                         <form role="form">
                             <fieldset>
-                                <div class="form-group input-group">
+                                <!--<div class="form-group input-group">-->
+                                    <?=classError('form-group input-group has-error has-feedback','form-group input-group');?>
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                    <?= input('email','Email'); ?>
+                                    <?=input('email','Email'); ?>
                                 </div>
-                                <div class="form-group input-group">
+                                <?=classError('form-group input-group has-error has-feedback','form-group input-group');?>
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
                                     <input type="password" class="form-control" placeholder="Password" id="password" name="password">
                                 </div>
                                 
                                 <!-- Change this to a button or input when using this as a form -->
-                                <button type="submit" class="btn btn-lg btn-primary btn-outline btn-block">Se connecter</button>
+                                <button onclick="classError();" type="submit" class="btn btn-lg btn-primary btn-outline btn-block">Se connecter</button>
                             </fieldset>
                         </form>
                     </div>
