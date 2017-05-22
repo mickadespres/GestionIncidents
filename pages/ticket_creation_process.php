@@ -57,6 +57,6 @@ $note = htmlspecialchars($_POST['note']);
     {
          echo '<body onLoad="alert(\'Entrez les infos obligatoires\')">';
 		// puis on le redirige vers la page d'accueil
-		echo '<meta http-equiv="refresh" content="0;URL=index.html">';
+		echo '<meta http-equiv="refresh" content="0;URL=cible.php">';
     }
   }
