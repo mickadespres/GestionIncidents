@@ -89,10 +89,8 @@ $date_creation = date("Y-m-d");
     {
          echo '<body onLoad="alert(\'Entrez les infos obligatoires\')">';
 		// puis on le redirige vers la page d'accueil
-<<<<<<< HEAD
 		echo '<meta http-equiv="refresh" content="0;URL=cible.php">';
-=======
+    
 		echo '<meta http-equiv="refresh" content="0;URL=ticket_creation.php">';
->>>>>>> origin/master
     }
   }
