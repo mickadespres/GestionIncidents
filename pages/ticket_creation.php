@@ -38,20 +38,20 @@ require_once('header.php');
                                         <div class="form-group">
                                             <label>Objet</label>
 
-                                            <input name="object" class="form-control" placeholder="Décrivez succintement votre incident">
+                                            <input name="object" class="form-control" placeholder="Décrivez succintement votre incident" value="test_object">
 
                                             </br>
                                         </div>
                                         <div class="form-group">
                                             <label>Description</label>
-                                            <textarea name="description" class="form-control" rows="3"></textarea>
+                                            <textarea name="description" class="form-control" rows="3">test_description</textarea>
                                             </br>
                                         </div>
                                         <div class="form-group">
                                             <label>Catégorie(s)</label>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" name="choix[]" value="Matériel">MATERIEL
+                                                    <input type="checkbox" name="choix[]" value="Materiel">MATERIEL
                                                 </label>
                                             </div>
                                             <div class="checkbox">
@@ -61,7 +61,7 @@ require_once('header.php');
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" name="choix[]" value="Réseau">RESEAU
+                                                    <input type="checkbox" name="choix[]" value="Reseau">RESEAU
                                                 </label>
                                             </div>
                                             </br>
@@ -69,10 +69,10 @@ require_once('header.php');
                                         <div class="form-group">
                                             <label>Priorité</label>
                                             <select class="form-control" name="priority">
-                                                <option value="blo">BLOQUANT</option>
-                                                <option value="bas">BAS</option>
-                                                <option value="mod">MODERE</option>
-                                                <option value="hau">HAUT</option>
+                                                <option value="BLOQUANT">BLOQUANT</option>
+                                                <option value="BAS">BAS</option>
+                                                <option value="MODERE">MODERE</option>
+                                                <option value="HAUT">HAUT</option>
                                             </select>
                                             </br>
                                         </div>
@@ -88,7 +88,7 @@ require_once('header.php');
                                         </div>
                                         <div class="form-group">
                                             <label>Localisation</label>
-                                            <input name="localisation" class="form-control" placeholder="Entrez IP ou nom de machine">
+                                            <input name="localisation" class="form-control" placeholder="Entrez IP ou nom de machine" value="172.172.1.1">
                                             </br>
                                         </div>
                                         <div class="form-group">

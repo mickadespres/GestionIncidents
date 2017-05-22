@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-$auth = 0; 
+$auth = 0;
 include '../lib/includes.php';
 /**
 *Traitement du formulaire
@@ -53,12 +53,12 @@ body{
 
 <body>
     <form action="#" method="POST">
-        <!--../pages/traitement.php-->   
-        
+        <!--../pages/traitement.php-->
+
     <div class="container">
     <div class="row">
                 <div class="col-lg-12">
-                    </br>   
+                    </br>
                 </div>
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
@@ -82,7 +82,7 @@ body{
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
                                     <input type="password" class="form-control" placeholder="Password" id="password" name="password">
                                 </div>
-                                
+
                                 <!-- Change this to a button or input when using this as a form -->
                                 <button onclick="classError();" type="submit" class="btn btn-lg btn-primary btn-outline btn-block">Se connecter</button>
                             </fieldset>
@@ -101,6 +101,6 @@ body{
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
     </form>
-    
+
 </body>
 </html>
