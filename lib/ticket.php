@@ -8,7 +8,7 @@ Supression
 if(isset($_GET['delete'])){
     checkCsrf();
     $id = $db->quote($_GET['delete']);
-    $db->query("DELETE FROM ticket_test WHERE id=$id");
+    $db->query("DELETE FROM gi_ticket WHERE id_ticket=$id");
     setFlash("Le ticket n°$id a bien été supprimé");
     header('Location:ticket.php');
     die();
@@ -18,7 +18,7 @@ if(isset($_GET['delete'])){
 Tickets
 **/
 
-$select = $db->query('SELECT id, object, statement, description, priority, categorie, date FROM ticket_test');
+$select = $db->query('SELECT id_ticket, id_user, id_resolver, category, id_device, object, statement, description, priority, date_creation, date_resolution FROM gi_ticket');
 $tickets = $select->fetchALL();
 
 ?>
@@ -435,17 +435,17 @@ $tickets = $select->fetchALL();
     <tbody>
         <?php foreach($tickets as $ticket): ?>
         <tr>
-        <td><?= $ticket['id']; ?></td>
+        <td><?= $ticket['id_ticket']; ?></td>
         <td><?= $ticket['object']; ?></td>
         <td><?= $ticket['statement']; ?></td>
         <td><?= $ticket['description']; ?></td>
         <td><?= $ticket['priority']; ?></td>
-        <td><?= $ticket['categorie']; ?></td>
-        <td><?= $ticket['date']; ?></td>
+        <td><?= $ticket['category']; ?></td>
+        <td><?= $ticket['date_creation']; ?></td>
         <td>
-            <a href="#"?id=<?= $ticket['id'];?> class="btn btn-default"><i class="fa fa-comments-o" aria-hidden="true"></i></a>
-            <a href="../pages/ticket_creation.php"?id=<?= $ticket['id'];?> class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-            <a href="?delete=<?= $ticket['id']; ?>&<?= csrf(); ?>" onclick="return confirm('Confirmez-vous la supression en cours ?');" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
+            <a href="#"?id=<?= $ticket['id_ticket'];?> class="btn btn-default"><i class="fa fa-comments-o" aria-hidden="true"></i></a>
+            <a href="../pages/ticket_creation.php"?id=<?= $ticket['id_ticket'];?> class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+            <a href="?delete=<?= $ticket['id_ticket']; ?>&<?= csrf(); ?>" onclick="return confirm('Confirmez-vous la supression en cours ?');" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
         </td>
         </tr>
         <?php endforeach; ?>

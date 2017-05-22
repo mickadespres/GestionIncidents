@@ -44,6 +44,8 @@ require_once('header.php');
               {
 
                 echo $data['id_ticket'].' - ';
+                echo $data['id_user'].' - ';
+                echo $data['id_resolver'].' - ';
                 echo $data['id_spotter'].' - ';
                 echo $data['category'].' - ';
                 echo $data['id_device'].' - ';

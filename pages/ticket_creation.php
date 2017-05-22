@@ -27,6 +27,7 @@ require_once('header.php');
                         <!-- /.panel-heading-->
                         <div class="panel-body">
                               <!--  <div class="col-lg-6">-->
+                              <form role="form" action="ticket_creation_process.php" method="POST">
                                         <div class="form-group">
                                             <label>Objet</label>
 

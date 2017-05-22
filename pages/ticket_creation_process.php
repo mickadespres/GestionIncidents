@@ -1,15 +1,15 @@
 <?php
 
-//APPEL CONNECTION A LA BASE DE DONNEES
+//APPEL
+include '../lib/form.php';
+include '../lib/session.php';
 require_once('../lib/database.php');
 
 //DATE DU JOUR
 $today = date("d.m.Y");
 
-//$id_ticket = htmlspecialchars($_POST['id_ticket']);
-
 //NUMERO APPAREIL
-$id_device = htmlspecialchars($_POST['id_device']);
+//$id_device = htmlspecialchars($_POST['id_device']);
 
 //OBJET
 $object = htmlspecialchars($_POST['object']);
@@ -53,11 +53,14 @@ $localisation = htmlspecialchars($_POST['localisation']);
   }
   else{
     $date_resolution = $today;
-    $date_resolution = date("d-m-Y",strtotime(date("Y-m-d", strtotime($date_resolution)) . " +1 month"));
+    $date_resolution = date("Y-m-d",strtotime(date("Y-m-d", strtotime($date_resolution)) . " +1 month"));
   }
 
 //DATE DE CREATION DU JOUR
 $date_creation = date("Y-m-d");
+
+//RESOLVEUR - RECUPERATION DE SON ID
+$id_rapporteur = $_SESSION['Auth']['id_user'];
 
 
 //var_dump($_POST);
@@ -71,8 +74,8 @@ $date_creation = date("Y-m-d");
     {
 
         //Préparation puis exécution de la requête d'insertion
-        $req = $db->prepare('INSERT INTO gi_ticket(object,description,category,priority,id_device,statement,date_creation,date_resolution) VALUES (?,?,?,?,?,?,?,?)');
-        $req->execute(array($object,$description,$category,$priority,$localisation,$statement,$date_creation,$date_resolution)) or die('Erreur');
+        $req = $db->prepare('INSERT INTO gi_ticket(id_user,object,description,category,priority,id_device,statement,date_creation,date_resolution) VALUES (?,?,?,?,?,?,?,?,?)');
+        $req->execute(array($id_rapporteur,$object,$description,$category,$priority,$localisation,$statement,$date_creation,$date_resolution)) or die('Erreur');
 
         //Enregistrement de la requête
         $insertValues = $req->fetch();
@@ -90,7 +93,7 @@ $date_creation = date("Y-m-d");
          echo '<body onLoad="alert(\'Entrez les infos obligatoires\')">';
 		// puis on le redirige vers la page d'accueil
 		echo '<meta http-equiv="refresh" content="0;URL=cible.php">';
-    
+
 		echo '<meta http-equiv="refresh" content="0;URL=ticket_creation.php">';
     }
   }
