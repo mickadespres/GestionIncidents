@@ -1,13 +1,63 @@
 <?php
 
+//APPEL CONNECTION A LA BASE DE DONNEES
+require_once('../lib/database.php');
+
+//DATE DU JOUR
+$today = date("d.m.Y");
+
 //$id_ticket = htmlspecialchars($_POST['id_ticket']);
+
+//NUMERO APPAREIL
+$id_device = htmlspecialchars($_POST['id_device']);
+
+//OBJET
 $object = htmlspecialchars($_POST['object']);
+
+//DESCRIPTION
 $description = htmlspecialchars($_POST['description']);
-$categories = htmlspecialchars($_POST['choix']);
+
+
+//CHOIX MULTIPLES CHECKBOX
+foreach($_POST["choix"] as $check)
+{
+if( !isset($category) ){ $category = $check; }
+else{ $category .= ",".$check; }
+}
+
+//TICKET A L'ETAT OUVERT
+$statement = 'ouvert';
+
+//PRIORITE DU PROBLEME
 $priority = htmlspecialchars($_POST['priority']);
-$date_resolution = htmlspecialchars($_POST['date_resolution']);
+
+//IP DE L'APPAREIL
 $localisation = htmlspecialchars($_POST['localisation']);
-$note = htmlspecialchars($_POST['note']);
+
+//A VOIR POUR CREER UNE AUTRE TABLE
+//$note = htmlspecialchars($_POST['note']);
+
+//TRAITEMENT DE LA DATE DE RESOLUTION DU TICKET
+  $date_resolution = htmlspecialchars($_POST['date_resolution']);
+  if($date_resolution == "2j"){
+    $date_resolution = $today;
+    $date_resolution = date("Y-m-d",strtotime(date("Y-m-d", strtotime($date_resolution)) . " +2 day"));
+  }
+  elseif($date_resolution == "1s"){
+    $date_resolution = $today;
+    $date_resolution = date("Y-m-d",strtotime(date("Y-m-d", strtotime($date_resolution)) . " +1 week"));
+  }
+  elseif($date_resolution == "2s"){
+    $date_resolution = $today;
+    $date_resolution = date("Y-m-d",strtotime(date("Y-m-d", strtotime($date_resolution)) . " +2 week"));
+  }
+  else{
+    $date_resolution = $today;
+    $date_resolution = date("d-m-Y",strtotime(date("Y-m-d", strtotime($date_resolution)) . " +1 month"));
+  }
+
+//DATE DE CREATION DU JOUR
+$date_creation = date("Y-m-d");
 
 
 //var_dump($_POST);
@@ -17,12 +67,12 @@ $note = htmlspecialchars($_POST['note']);
   if(!empty($_POST))
   {
     // Les identifiants sont transmis ?
-    if(!empty($object) && !empty($description) && !empty($categories) && !empty($priority) && !empty($date_resolution) && !empty($localisation))
+    if(!empty($object) && !empty($description) && !empty($category) && !empty($priority) && !empty($date_resolution) && !empty($localisation))
     {
 
         //Préparation puis exécution de la requête d'insertion
-        $req = $bdd->prepare('INSERT INTO gi_ticket(object,description,category,priority) VALUES (?,?,?,?)');
-        $req->execute(array($object,$description,$categories,$priority)) or die('Erreur');
+        $req = $db->prepare('INSERT INTO gi_ticket(object,description,category,priority,id_device,statement,date_creation,date_resolution) VALUES (?,?,?,?,?,?,?,?)');
+        $req->execute(array($object,$description,$category,$priority,$localisation,$statement,$date_creation,$date_resolution)) or die('Erreur');
 
         //Enregistrement de la requête
         $insertValues = $req->fetch();
@@ -30,33 +80,19 @@ $note = htmlspecialchars($_POST['note']);
         //Fermeture de la requête afin de pas avoir de problème pour la prochaine requête
         $req->closeCursor();
 
-         //récuypération du prénom
-        //$_SESSION['firstname'] = $dbFirstnameRecup['firstname'];
-
-
-        //Sujet : encodage pour un affichage correcte
-        /*$subject = "Etudes statistiques : Création de votre compte validé\n";
-        $subject = utf8_decode($subject);
-        $subject = mb_encode_mimeheader($subject,"UTF-8");
-
-        // Le message
-        $message = "Bonjour " . $userFirstname . ",\r\n\nVous avez créé un compte sur notre site.\r\nVous avez maintenant accès à tous nos reportings et études de marché.\r\n\nVos identifiants sont : \r\nIdentifiant : " .$userEmail . "\r\nMot de passe : " . $userPassword . "\r\n\nBonne visite";
-
-        // Dans le cas où nos lignes comportent plus de 70 caractères, nous les coupons en utilisant wordwrap()
-        $message = wordwrap($message, 70, "\r\n");
-
-        // Envoi du mail
-        mail($userEmail, $subject, $message);*/
-
 
         // On redirige vers la page connecté
-        header('Location: ticket_creation.php');
+        header('Location: view_bdd.php');
         die();
     }
       else
     {
          echo '<body onLoad="alert(\'Entrez les infos obligatoires\')">';
 		// puis on le redirige vers la page d'accueil
+<<<<<<< HEAD
 		echo '<meta http-equiv="refresh" content="0;URL=cible.php">';
+=======
+		echo '<meta http-equiv="refresh" content="0;URL=ticket_creation.php">';
+>>>>>>> origin/master
     }
   }
