@@ -28,13 +28,6 @@ require_once('header.php');
                         <div class="panel-body">
                               <!--  <div class="col-lg-6">-->
                                     <form role="form" action="ticket_creation_process.php" method="POST">
-                                      <fieldset disabled>
-                                          <div class="form-group">
-                                              <label for="disabledSelect">N° Identifiant </label>
-                                              <input class="form-control" id="id_ticket" name="id_ticket" type="text" placeholder="0594563" disabled>
-                                            </br>
-                                           </div>
-                                      </fieldset>
                                         <div class="form-group">
                                             <label>Objet</label>
 

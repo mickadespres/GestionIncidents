@@ -19,7 +19,7 @@ require_once('header.php');
 
 
             <div class="row" style="margin: 0 auto;">
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <span class="glyphicon glyphicon-info-sign"></span> Veuillez renseignez les champs ci-dessous
