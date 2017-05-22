@@ -8,12 +8,17 @@ Supression
 if(isset($_GET['delete'])){
     checkCsrf();
     $id = $db->quote($_GET['delete']);
-    $db->query("DELETE FROM gi_ticket WHERE id_ticket=$id");
     setFlash("Le ticket n°$id a bien été supprimé");
+    $db->query("DELETE FROM gi_ticket WHERE id_ticket=$id");
+    
     header('Location:ticket.php');
     die();
 }
 
+            
+
+
+      
 /**
 Tickets
 **/
@@ -406,7 +411,7 @@ $tickets = $select->fetchALL();
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Liste des incidents</h1><?php echo flash();?>
+                    <h1 class="page-header">Liste des incidents</h1><?= flash();?>
                 </div>
                 <!-- /.col-lg-12 -->
                 <p><a href="../pages/ticket_creation.php" class="btn btn-success"><span class="fa fa-ticket"></span> Déclarer un nouvel incident</a></p>
