@@ -6,7 +6,7 @@ function input($id,$placehold){
 
 function inputId($id,$placehold,$value){
     return "<input type='text' class='form-control' id='$id' name='$id' value='$value' placeholder='$placehold' disabled>";
-    
+
 }
 
 function textarea($id){
@@ -29,16 +29,16 @@ function select($id, $options = array()){
 
 function classError($error,$success){
     if(isset($_POST['email']) && isset($_POST['password']) && (!isset($_SESSION['Auth']))){
-    return "<div class='$error'>";}
-        else{
-            return "<div class='$success'>";
-        }
+        return "<div class='$error'>";}
+    else{
+        return "<div class='$success'>";
+    }
 }
 
 
 function notFlash($type,$message){
     if(isset($_POST['email']) && isset($_POST['password']) && (!isset($_SESSION['Auth'])))
-     return "<div class='alert alert-$type'>$message</div>";
+        return "<div class='alert alert-$type'>$message</div>";
 }
 
 ?>

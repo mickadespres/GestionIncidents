@@ -3,8 +3,8 @@ session_start();
 function flash(){
     if(isset($_SESSION['Flash'])){
         extract($_SESSION['Flash']);
-           unset($_SESSION['Flash']);
-            return "<div class='alert alert-$type'>$message</div>";
+        unset($_SESSION['Flash']);
+        return "<div class='alert alert-$type'>$message</div>";
     }
 
 }

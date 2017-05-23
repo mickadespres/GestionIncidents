@@ -21,8 +21,8 @@ $description = htmlspecialchars($_POST['description']);
 //CHOIX MULTIPLES CHECKBOX
 foreach($_POST["choix"] as $check)
 {
-if( !isset($category) ){ $category = $check; }
-else{ $category .= ",".$check; }
+    if( !isset($category) ){ $category = $check; }
+    else{ $category .= ",".$check; }
 }
 
 //TICKET A L'ETAT OUVERT
@@ -38,23 +38,23 @@ $localisation = htmlspecialchars($_POST['localisation']);
 //$note = htmlspecialchars($_POST['note']);
 
 //TRAITEMENT DE LA DATE DE RESOLUTION DU TICKET
-  $date_resolution = htmlspecialchars($_POST['date_resolution']);
-      if($date_resolution == "2j"){
-          $date_resolution = $today;
-          $date_resolution = date("Y-m-d",strtotime(date("Y-m-d", strtotime($date_resolution)) . " +2 day"));
-      }
-      elseif($date_resolution == "1s"){
-          $date_resolution = $today;
-          $date_resolution = date("Y-m-d",strtotime(date("Y-m-d", strtotime($date_resolution)) . " +1 week"));
-      }
-      elseif($date_resolution == "2s"){
-          $date_resolution = $today;
-          $date_resolution = date("Y-m-d",strtotime(date("Y-m-d", strtotime($date_resolution)) . " +2 week"));
-      }
-      else{
-          $date_resolution = $today;
-          $date_resolution = date("Y-m-d",strtotime(date("Y-m-d", strtotime($date_resolution)) . " +1 month"));
-      }
+$date_resolution = htmlspecialchars($_POST['date_resolution']);
+if($date_resolution == "2j"){
+    $date_resolution = $today;
+    $date_resolution = date("Y-m-d",strtotime(date("Y-m-d", strtotime($date_resolution)) . " +2 day"));
+}
+elseif($date_resolution == "1s"){
+    $date_resolution = $today;
+    $date_resolution = date("Y-m-d",strtotime(date("Y-m-d", strtotime($date_resolution)) . " +1 week"));
+}
+elseif($date_resolution == "2s"){
+    $date_resolution = $today;
+    $date_resolution = date("Y-m-d",strtotime(date("Y-m-d", strtotime($date_resolution)) . " +2 week"));
+}
+else{
+    $date_resolution = $today;
+    $date_resolution = date("Y-m-d",strtotime(date("Y-m-d", strtotime($date_resolution)) . " +1 month"));
+}
 
 //DATE DE CREATION DU JOUR
 $date_creation = date("Y-m-d");
@@ -71,8 +71,8 @@ $comment = htmlspecialchars($_POST['comment']);
 
 
 // Test de l'envoi du formulaire
-  if(!empty($_POST))
-  {
+if(!empty($_POST))
+{
     // Les informations principales sont-elles transmises ?
     if(!empty($object) && !empty($description) && !empty($category) && !empty($priority) && !empty($date_resolution) && !empty($localisation))
     {
@@ -96,24 +96,22 @@ $comment = htmlspecialchars($_POST['comment']);
 
         //Fermeture de la requête afin de pas avoir de problème pour la prochaine requête
         $req->closeCursor();
-        
+
+    }
+
+    // On redirige vers la page connecté
+
+    //        $testid=test();
+    setFlash("Le ticket n°$numid a bien été ajouté !");
+    header('Location: ../lib/ticket.php');
+    die();
 }
-        
-        // On redirige vers la page connecté
-<<<<<<< HEAD
-=======
-//        $testid=test();
-        setFlash("Le ticket n°$numid a bien été ajouté !");
->>>>>>> origin/master
-        header('Location: ../lib/ticket.php');
-        die();
-    }
-      else
-    {
-         echo '<body onLoad="alert(\'Entrez les infos obligatoires\')">';
-      		// puis on le redirige vers la page d'accueil
-      		echo '<meta http-equiv="refresh" content="0;URL=cible.php">';
-    }
+else
+{
+    echo '<body onLoad="alert(\'Entrez les infos obligatoires\')">';
+    // puis on le redirige vers la page d'accueil
+    echo '<meta http-equiv="refresh" content="0;URL=cible.php">';
+}
 //function test(){
 //    //RECUP ID NOUVEAU TICKET
 //            $IdNouveauTicket = $db->query('SELECT id_ticket FROM gi_ticket ORDER BY id_ticket DESC LIMIT 1');

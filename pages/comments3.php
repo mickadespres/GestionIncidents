@@ -35,57 +35,57 @@ $comments = $req->fetchALL();*/
     <!-- /.container-fluid -->
 
 
-<?php
+    <?php
 
-$id = 23;
+    $id = 23;
 
-<<<<<<< HEAD
-$req = $db->query("SELECT content, name, firstname, time FROM gi_comment WHERE id_ticket = '$id'");
-$res = $req->fetchALL();
-var_dump($res);
-=======
-$req = $db->query("SELECT content,name,firstname,time FROM gi_comment WHERE id_ticket = '$id'");
-$res = $req->fetchALL();
+    <<<<<<< HEAD
+        $req = $db->query("SELECT content, name, firstname, time FROM gi_comment WHERE id_ticket = '$id'");
+    $res = $req->fetchALL();
+    var_dump($res);
+    =======
+        $req = $db->query("SELECT content,name,firstname,time FROM gi_comment WHERE id_ticket = '$id'");
+    $res = $req->fetchALL();
 
->>>>>>> origin/master
-//Enregistrement de la requête
-//$res = $req->fetch();
+    >>>>>>> origin/master
+        //Enregistrement de la requête
+        //$res = $req->fetch();
 
-//Fermeture de la requête afin de pas avoir de problème pour la prochaine requête
-//$req->closeCursor();
+        //Fermeture de la requête afin de pas avoir de problème pour la prochaine requête
+        //$req->closeCursor();
 
-?>
+    ?>
 
-            <?php foreach($res as $comment): ?>
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                  <?= 'M. '.$comment['firstname'].' '.$comment['name']; ?>
-                  </div>
-                  <div class="panel-body">
-                <?= $comment['content']; ?>
-              </div>
-              <div class="panel-footer">
-                <?= $comment['time']; ?>
-                </div>
-            </div>
-            <?php endforeach; ?>
-
-<<<<<<< HEAD
-=======
-            <?php
-            //Fermeture de la requête afin de pas avoir de problème pour la prochaine requête
-            $req->closeCursor();
-            ?>
-
->>>>>>> origin/master
-  <div class="panel panel-info">
-    <div class="panel-heading">Panel heading without title</div>
-    <div class="panel-body">
-      Quidem in consuetudinis suo est non cum equo quae commorati utatur quod vis quod et quae hoc hoc si si delectemur consuevit vis animal repudiandae novo in equo hoc nemo.
+    <?php foreach($res as $comment): ?>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <?= 'M. '.$comment['firstname'].' '.$comment['name']; ?>
+        </div>
+        <div class="panel-body">
+            <?= $comment['content']; ?>
+        </div>
+        <div class="panel-footer">
+            <?= $comment['time']; ?>
+        </div>
     </div>
-  </div>
+    <?php endforeach; ?>
 
-</div>
+    <<<<<<< HEAD
+               =======
+               <?php
+               //Fermeture de la requête afin de pas avoir de problème pour la prochaine requête
+               $req->closeCursor();
+               ?>
+
+               >>>>>>> origin/master
+    <div class="panel panel-info">
+        <div class="panel-heading">Panel heading without title</div>
+        <div class="panel-body">
+            Quidem in consuetudinis suo est non cum equo quae commorati utatur quod vis quod et quae hoc hoc si si delectemur consuevit vis animal repudiandae novo in equo hoc nemo.
+        </div>
+    </div>
+
+    </div>
 
     </body>
 </html>
