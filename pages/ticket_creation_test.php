@@ -55,7 +55,7 @@ echo "(l'id rapporteur est $id_rapporteur)";?>
             <!-- /.container-fluid -->
 
 
-                                                <div class="row" style="margin: 0 auto;">
+            <div class="row" style="margin: 0 auto;">
                 <div class="col-lg-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
