@@ -91,7 +91,7 @@ require_once('header.php');
                                         </div>
                                         <div class="form-group">
                                             <label>Commentaires</label>
-                                            <textarea name="note" class="form-control" rows="3"></textarea>
+                                            <textarea name="comment" class="form-control" rows="3"></textarea>
                                             </br>
                                         </div>
                                         <button type="submit" class="btn-outline btn-primary btn-lg btn-block">Envoyer</button>
