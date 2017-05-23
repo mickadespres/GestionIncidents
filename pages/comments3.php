@@ -39,9 +39,15 @@ $comments = $req->fetchALL();*/
 
 $id = 23;
 
+<<<<<<< HEAD
 $req = $db->query("SELECT content, name, firstname, time FROM gi_comment WHERE id_ticket = '$id'");
 $res = $req->fetchALL();
 var_dump($res);
+=======
+$req = $db->query("SELECT content,name,firstname,time FROM gi_comment WHERE id_ticket = '$id'");
+$res = $req->fetchALL();
+
+>>>>>>> origin/master
 //Enregistrement de la requête
 //$res = $req->fetch();
 
@@ -64,6 +70,14 @@ var_dump($res);
             </div>
             <?php endforeach; ?>
 
+<<<<<<< HEAD
+=======
+            <?php
+            //Fermeture de la requête afin de pas avoir de problème pour la prochaine requête
+            $req->closeCursor();
+            ?>
+
+>>>>>>> origin/master
   <div class="panel panel-info">
     <div class="panel-heading">Panel heading without title</div>
     <div class="panel-body">

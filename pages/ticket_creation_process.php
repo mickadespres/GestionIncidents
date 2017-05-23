@@ -39,22 +39,22 @@ $localisation = htmlspecialchars($_POST['localisation']);
 
 //TRAITEMENT DE LA DATE DE RESOLUTION DU TICKET
   $date_resolution = htmlspecialchars($_POST['date_resolution']);
-  if($date_resolution == "2j"){
-    $date_resolution = $today;
-    $date_resolution = date("Y-m-d",strtotime(date("Y-m-d", strtotime($date_resolution)) . " +2 day"));
-  }
-  elseif($date_resolution == "1s"){
-    $date_resolution = $today;
-    $date_resolution = date("Y-m-d",strtotime(date("Y-m-d", strtotime($date_resolution)) . " +1 week"));
-  }
-  elseif($date_resolution == "2s"){
-    $date_resolution = $today;
-    $date_resolution = date("Y-m-d",strtotime(date("Y-m-d", strtotime($date_resolution)) . " +2 week"));
-  }
-  else{
-    $date_resolution = $today;
-    $date_resolution = date("Y-m-d",strtotime(date("Y-m-d", strtotime($date_resolution)) . " +1 month"));
-  }
+      if($date_resolution == "2j"){
+          $date_resolution = $today;
+          $date_resolution = date("Y-m-d",strtotime(date("Y-m-d", strtotime($date_resolution)) . " +2 day"));
+      }
+      elseif($date_resolution == "1s"){
+          $date_resolution = $today;
+          $date_resolution = date("Y-m-d",strtotime(date("Y-m-d", strtotime($date_resolution)) . " +1 week"));
+      }
+      elseif($date_resolution == "2s"){
+          $date_resolution = $today;
+          $date_resolution = date("Y-m-d",strtotime(date("Y-m-d", strtotime($date_resolution)) . " +2 week"));
+      }
+      else{
+          $date_resolution = $today;
+          $date_resolution = date("Y-m-d",strtotime(date("Y-m-d", strtotime($date_resolution)) . " +1 month"));
+      }
 
 //DATE DE CREATION DU JOUR
 $date_creation = date("Y-m-d");
@@ -62,14 +62,18 @@ $date_creation = date("Y-m-d");
 //RESOLVEUR - RECUPERATION DE SON ID
 $id_rapporteur = $_SESSION['Auth']['id_user'];
 
+//RECUPERATION INFO UTILISATEUR
+$name_user = $_SESSION['Auth']['name'];
+$firstname_user = $_SESSION['Auth']['firstname'];
 
-//var_dump($_POST);
+//COMMENTAIRE
+$comment = htmlspecialchars($_POST['comment']);
 
 
 // Test de l'envoi du formulaire
   if(!empty($_POST))
   {
-    // Les identifiants sont transmis ?
+    // Les informations principales sont-elles transmises ?
     if(!empty($object) && !empty($description) && !empty($category) && !empty($priority) && !empty($date_resolution) && !empty($localisation))
     {
 
@@ -78,7 +82,17 @@ $id_rapporteur = $_SESSION['Auth']['id_user'];
         $req->execute(array($id_rapporteur,$object,$description,$category,$priority,$localisation,$statement,$date_creation,$date_resolution)) or die('Erreur');
         $numid=$db->lastInsertId();
         //Enregistrement de la requête
-        $insertValues = $req->fetch();
+        //$insertValues = $req->fetch();
+
+        //Fermeture de la requête afin de pas avoir de problème pour la prochaine requête
+        $req->closeCursor();
+
+
+        //REQUETE COMMENTAIRE
+        $lastIdTicket = $db->lastInsertId();
+
+        $req = $db->prepare('INSERT INTO gi_comment(id_ticket,content,name,firstname) VALUES (?,?,?,?)');
+        $req->execute(array($lastIdTicket,$comment,$name_user,$firstname_user)) or die('Erreur');
 
         //Fermeture de la requête afin de pas avoir de problème pour la prochaine requête
         $req->closeCursor();
@@ -86,18 +100,19 @@ $id_rapporteur = $_SESSION['Auth']['id_user'];
 }
         
         // On redirige vers la page connecté
+<<<<<<< HEAD
+=======
 //        $testid=test();
         setFlash("Le ticket n°$numid a bien été ajouté !");
+>>>>>>> origin/master
         header('Location: ../lib/ticket.php');
         die();
     }
       else
     {
          echo '<body onLoad="alert(\'Entrez les infos obligatoires\')">';
-		// puis on le redirige vers la page d'accueil
-		echo '<meta http-equiv="refresh" content="0;URL=cible.php">';
-
-		echo '<meta http-equiv="refresh" content="0;URL=ticket_creation.php">';
+      		// puis on le redirige vers la page d'accueil
+      		echo '<meta http-equiv="refresh" content="0;URL=cible.php">';
     }
 //function test(){
 //    //RECUP ID NOUVEAU TICKET
