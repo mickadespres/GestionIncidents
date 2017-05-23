@@ -80,7 +80,7 @@ $comment = htmlspecialchars($_POST['comment']);
         //Préparation puis exécution de la requête d'insertion
         $req = $db->prepare('INSERT INTO gi_ticket(id_user,object,description,category,priority,id_device,statement,date_creation,date_resolution) VALUES (?,?,?,?,?,?,?,?,?)');
         $req->execute(array($id_rapporteur,$object,$description,$category,$priority,$localisation,$statement,$date_creation,$date_resolution)) or die('Erreur');
-
+        $numid=$db->lastInsertId();
         //Enregistrement de la requête
         //$insertValues = $req->fetch();
 
@@ -96,9 +96,15 @@ $comment = htmlspecialchars($_POST['comment']);
 
         //Fermeture de la requête afin de pas avoir de problème pour la prochaine requête
         $req->closeCursor();
-
-
+        
+}
+        
         // On redirige vers la page connecté
+<<<<<<< HEAD
+=======
+//        $testid=test();
+        setFlash("Le ticket n°$numid a bien été ajouté !");
+>>>>>>> origin/master
         header('Location: ../lib/ticket.php');
         die();
     }
@@ -108,4 +114,10 @@ $comment = htmlspecialchars($_POST['comment']);
       		// puis on le redirige vers la page d'accueil
       		echo '<meta http-equiv="refresh" content="0;URL=cible.php">';
     }
-  }
+//function test(){
+//    //RECUP ID NOUVEAU TICKET
+//            $IdNouveauTicket = $db->query('SELECT id_ticket FROM gi_ticket ORDER BY id_ticket DESC LIMIT 1');
+//            $identifiant = $IdNouveauTicket->fetch(PDO::FETCH_ASSOC);
+//            return $idnew=$identifiant['id_ticket'];
+//                
+//}
