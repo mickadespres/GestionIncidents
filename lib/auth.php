@@ -1,7 +1,7 @@
 <?php
 if(!isset($auth)){
     if(!isset($_SESSION['Auth']['email'])){
-        header('Location:../lib/login.php');
+        header('Location:' . WEBROOT .'/lib/login.php');
         die();
 
     }
