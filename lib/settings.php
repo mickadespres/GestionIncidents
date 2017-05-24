@@ -1,12 +1,16 @@
 <?php
-include '../pages/header.php';
+include 'session.php';
+include '../pages/header.html';
+
 if(!isset($auth)){
     if(!isset($_SESSION['Auth']['email'])){
         header('Location:../lib/login.php');
         die();
     }
 }
+
 ?>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <html>
     <body>

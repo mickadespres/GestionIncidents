@@ -18,7 +18,7 @@ if(isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['codePostal']
     $db -> setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
     $req = $db->prepare('INSERT INTO gi_user (name, firstname, postal_code, email, password, name_right) VALUES (?,?,?,?,?,?)');
     $params = array(
-        $nom, 
+        $nom,
         $prenom,
         $codePostal,
         $email,
@@ -49,7 +49,7 @@ if(isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['codePostal']
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="input-group input-group">
-                                    <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user-circle" style="font-size:20px"></i><strong> Nom</strong></span> 
+                                    <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user-circle" style="font-size:20px"></i><strong> Nom</strong></span>
                                     <input type="text" class="form-control" aria-describedby="sizing-addon1" style="font-size:16px" name="nom" placeholder="Nom de famille">
                                 </div>
                             </div>
@@ -66,13 +66,13 @@ if(isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['codePostal']
                                 <div class="input-group input-group">
                                     <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-paper-plane-o" style="font-size:19px"></i><strong> Code postal</strong></span>
                                     <input type="text" class="form-control" aria-describedby="sizing-addon3" style="font-size:16px" name="codePostal" placeholder="Code postal">
-                                </div>  
+                                </div>
                             </div>
                             <div class="col-md-5">
                                 <div class="input-group input-group">
                                     <span class="input-group-addon" id="sizing-addon4"><i class="fa fa-key" style="font-size:19px"></i><strong> Mot de passe</strong></span>
                                     <input type="password" class="form-control" aria-describedby="sizing-addon4" style="font-size:16px" name="motDePasse" placeholder="Mot de passe">
-                                </div>  
+                                </div>
                             </div>
                         </div>
                         <br><br>
@@ -101,4 +101,3 @@ if(isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['codePostal']
 </form>
 </body>
 </html>
-

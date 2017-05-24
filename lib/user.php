@@ -1,13 +1,18 @@
 <?php
+
+include 'session.php';
 include 'database.php';
-include '../pages/header.php';
+
+include '../pages/header.html';
+
 $prenom = $_SESSION['Auth']['firstname'];
 $nom = $_SESSION['Auth']['name'];
 $codePostal = $_SESSION['Auth']['postal_code'];
 $identifiant = $_SESSION['Auth']['id_user'];
-$email = $_SESSION['Auth']['email']; 
+$email = $_SESSION['Auth']['email'];
 $role = $_SESSION['Auth']['right'];
 ?>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div id="page-wrapper">
     <div class="row">
@@ -31,7 +36,7 @@ $role = $_SESSION['Auth']['right'];
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="input-group input-group">
-                                        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user-circle" style="font-size:20px"></i><strong> Nom</strong></span> 
+                                        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user-circle" style="font-size:20px"></i><strong> Nom</strong></span>
                                         <input type="text" class="form-control" aria-describedby="sizing-addon1" style="font-size:16px" value="<?= $nom; ?>" disabled>
                                     </div>
                                 </div>
@@ -48,13 +53,13 @@ $role = $_SESSION['Auth']['right'];
                                     <div class="input-group input-group">
                                         <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-paper-plane-o" style="font-size:19px"></i><strong> Code postal</strong></span>
                                         <input type="text" class="form-control" aria-describedby="sizing-addon3" style="font-size:16px" value="<?= $codePostal;?>" disabled>
-                                    </div>  
+                                    </div>
                                 </div>
                                 <div class="col-md-5">
                                     <div class="input-group input-group">
                                         <span class="input-group-addon" id="sizing-addon4"><i class="fa fa-tag" style="font-size:19px"></i><strong>      Identifiant</strong></span>
                                         <input type="text" class="form-control" aria-describedby="sizing-addon4" style="font-size:16px" value="<?= $identifiant;?>" disabled>
-                                    </div>  
+                                    </div>
                                 </div>
                             </div>
                             <br><br>
