@@ -99,11 +99,9 @@ if(!empty($_POST))
 
     }
 
-    // On redirige vers la page connecté
-
-    //        $testid=test();
+    //On redirige vers la page connecté
     setFlash("Le ticket n°$numid a bien été ajouté !");
-    header('Location: ../lib/ticket.php');
+    header('Location: ../pages/listing_ticket.php');
     die();
 }
 else
@@ -112,10 +110,3 @@ else
     // puis on le redirige vers la page d'accueil
     echo '<meta http-equiv="refresh" content="0;URL=cible.php">';
 }
-//function test(){
-//    //RECUP ID NOUVEAU TICKET
-//            $IdNouveauTicket = $db->query('SELECT id_ticket FROM gi_ticket ORDER BY id_ticket DESC LIMIT 1');
-//            $identifiant = $IdNouveauTicket->fetch(PDO::FETCH_ASSOC);
-//            return $idnew=$identifiant['id_ticket'];
-//                
-//}
