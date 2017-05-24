@@ -4,7 +4,6 @@ if(!isset($auth)){
     if(!isset($_SESSION['Auth']['email'])){
         header('Location:../lib/login.php');
         die();
-
     }
 }
 ?>

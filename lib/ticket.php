@@ -75,7 +75,7 @@ $tickets = $select->fetchALL();
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html" style="color:#000033;">Gestion incidents</a>
+                    <a class="navbar-brand" href="../pages/cible.php" style="color:#000033;">Gestion incidents</a>
                 </div>
                 <!-- /.navbar-header -->
 
