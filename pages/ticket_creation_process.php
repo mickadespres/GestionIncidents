@@ -101,7 +101,7 @@ if(!empty($_POST))
 
     //On redirige vers la page connecté
     setFlash("Le ticket n°$numid a bien été ajouté !");
-    header('Location: ../pages/listing_ticket.php');
+    header('Location: ../pages/listing_tickets.php');
     die();
 }
 else

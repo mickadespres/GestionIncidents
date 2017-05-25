@@ -1,7 +1,7 @@
 <?php
-function input($id,$placehold){
+function input($id,$placehold,$type = 'text'){
     $value = isset($_POST[$id]) ? $_POST[$id] : '';
-    return "<input type='text' class='form-control' id='$id' name='$id' value='$value' placeholder='$placehold' autofocus>";
+    return "<input type='$type' class='form-control' id='$id' name='$id' value='$value' placeholder='$placehold' autofocus>";
 }
 
 function inputId($id,$placehold,$value){

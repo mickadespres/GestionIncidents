@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <link rel="icon" type="image/gif" href="../img/favicon.ico" />
+        <link rel="icon" type="image/gif" href="../img/favicon.png"/>
         <title>Gestion Incident</title>
 
         <!-- Bootstrap Core CSS -->
@@ -22,7 +22,6 @@
 
         <!-- Custom Fonts -->
         <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
     </head>
 
     <body>

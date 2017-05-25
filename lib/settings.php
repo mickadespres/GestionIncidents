@@ -59,7 +59,7 @@ if(!isset($auth)){
                         </div>
                         <div class="panel-footer">
                             <div class="btn-group btn-group-justified">
-                                <a href="delete_user.php" class="btn btn-danger">Supprimer</a></div>
+                                <a href="../lib/delete_user.php" class="btn btn-danger">Supprimer</a></div>
                         </div>
                     </div>
                     <!-- /.col-lg-4 -->

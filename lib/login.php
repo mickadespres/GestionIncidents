@@ -17,7 +17,7 @@ if(isset($_POST['email']) && isset($_POST['password'])){
         die();
     }
     else{
-        echo "<script>alert(\"Identifiants incorrects, Veillez à bien vous identifier.\")</script>"; 
+        echo "<script>alert(\"La connexion n'a pas pu aboutir.\")</script>"; 
     }
 }
 ?>
@@ -44,7 +44,7 @@ if(isset($_POST['email']) && isset($_POST['password'])){
 
         <style>
             body{
-                background-image: url("../img/fond.png");
+                background-image: url("../img/background.jpg");
                 background-repeat: no-repeat;
                 background-size: cover;
             }
@@ -65,42 +65,41 @@ if(isset($_POST['email']) && isset($_POST['password'])){
                         <style>span.glyphicon-dashboard {font-size: 8.0em;}</style>
                         <center><span class="glyphicon glyphicon-dashboard"></span></center>
                         <center><h1> Gestion Incidents </h1></center>
-                        <div class="login-panel panel panel-default">
+                        <div class="login-panel panel panel-default" style="opacity:0.82">
                             <div class="panel-heading">
                                 <center><h3 class="panel-title">Veuillez rentrer vos informations de connexion</h3></center>
                             </div>
                             <div class="panel-body">
-                                <center><?php echo notFlash('warning','Identifiants incorrects');?></center>
+                                <center><?php echo notFlash('warning','Identifiants incorrects !');?></center>
                                 <form role="form">
                                     <fieldset>
                                         <!--<div class="form-group input-group">-->
                                         <?=classError('form-group input-group has-error has-feedback','form-group input-group');?>
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                        <?=input('email','Email'); ?>
+                                        <?=input('email','Email','email'); ?>
                                         </div>
                                     <?=classError('form-group input-group has-error has-feedback','form-group input-group');?>
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                                    <input type="password" class="form-control" placeholder="Password" id="password" name="password">
+                                    <?=input('password','Password','password'); ?>
                                     </div>
-
-                                <!-- Change this to a button or input when using this as a form -->
-                                <button onclick="classError();" type="submit" class="btn btn-lg btn-primary btn-outline btn-block">Se connecter</button>
-                                </fieldset>
-                            </form>
-                    </div>
+                            </div>
+                            <button onclick="classError();" type="submit" class="btn btn-lg btn-primary btn-outline btn-block">Se connecter</button>
+                            </fieldset>
+                        </form>
                 </div>
             </div>
             </div>
         </div>
-    <!-- jQuery -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
-    </form>
+    </div>
+<!-- jQuery -->
+<script src="../vendor/jquery/jquery.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<!-- Metis Menu Plugin JavaScript -->
+<script src="../vendor/metisMenu/metisMenu.min.js"></script>
+<!-- Custom Theme JavaScript -->
+<script src="../dist/js/sb-admin-2.js"></script>
+</form>
 
 </body>
 </html>

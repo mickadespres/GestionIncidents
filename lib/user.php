@@ -6,7 +6,7 @@ $nom = $_SESSION['Auth']['name'];
 $codePostal = $_SESSION['Auth']['postal_code'];
 $identifiant = $_SESSION['Auth']['id_user'];
 $email = $_SESSION['Auth']['email']; 
-$role = $_SESSION['Auth']['right'];
+$role = $_SESSION['Auth']['name_right'];
 ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div id="page-wrapper">

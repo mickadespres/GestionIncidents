@@ -94,7 +94,7 @@ require_once('header.html');
                                             <textarea name="comment" class="form-control" rows="3"></textarea>
                                             </br>
                                         </div>
-                                        <button type="submit" class="btn-outline btn-primary btn-lg btn-block">Ouvrir le ticket</button>
+                                        <button onclick="return confirm('Confirmez-vous la création en cours ?');" type="submit" class="btn-outline btn-primary btn-lg btn-block">Ouvrir le ticket</button>
                                     </form>
                                 <!--</div>-->
                                 <!-- ./ col-lg-6 -->
