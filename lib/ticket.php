@@ -417,41 +417,54 @@ $tickets = $select->fetchALL();
                                 Liste des incidents présents en base.
                             </div>
                             <!-- /.panel-heading -->
-                            <div class="panel-body" style="color:#000033;">
-                                <table width="100%" class="table table-striped table-bordered table-hover" id="tableau">
-                                    <thead>
-                                        <tr>
-                                            <th>N°</th>
-                                            <th>Objet</th>
-                                            <th>Etat</th>
-                                            <th>Description</th>
-                                            <th>Priorité</th>
-                                            <th>Catégorie</th>
-                                            <th>Date de création</th>
-                                            <th>Administration</th>
+                            <style>
+                                #divConteneur{
+                                    min-height:475  px;
+                                    height:475px;/*pour IE qui comprend rien, et qui ne reconnait pas min-height, mais qui comprend mal height*/
+                                    min-width:1060px;
+                                    width:1060px;/*pour IE qui comprend rien*/
+                                    overflow:scroll;/*pour activer les scrollbarres*/
+                                }
+                            </style>
 
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach($tickets as $ticket): ?>
-                                        <tr>
-                                            <td><?= $ticket['id_ticket']; ?></td>
-                                            <td><?= $ticket['object']; ?></td>
-                                            <td><?= $ticket['statement']; ?></td>
-                                            <td><?= $ticket['description']; ?></td>
-                                            <td><?= $ticket['priority']; ?></td>
-                                            <td><?= $ticket['category']; ?></td>
-                                            <td><?= $ticket['date_creation']; ?></td>
-                                            <td>
-                                                <a href="#"?id=<?= $ticket['id_ticket'];?> class="btn btn-default"><i class="fa fa-comments-o" aria-hidden="true"></i></a>
-                                                <a href="../pages/ticket_creation.php"?id=<?= $ticket['id_ticket'];?> class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                                <a href="?delete=<?= $ticket['id_ticket']; ?>&<?= csrf(); ?>" onclick="return confirm('Confirmez-vous la supression en cours ?');" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
-                                            </td>
-                                        </tr>
-                                        <?php endforeach; ?>
-                                    </tbody>
-                                </table>
+                            <div id="divConteneur">
+                                <div class="panel-body" style="color:#000033;">
+                                    <table width="100%" class="table table-striped table-bordered table-hover" id="tableau">
+                                        <thead>
+                                            <tr>
+                                                <th>N°</th>
+                                                <th>Objet</th>
+                                                <th>Etat</th>
+                                                <th>Description</th>
+                                                <th>Priorité</th>
+                                                <th>Catégorie</th>
+                                                <th>Date de création</th>
+                                                <th>Administration</th>
 
+                                            </tr>
+                                        </thead>
+                                        <div>
+                                            <tbody>
+                                                <?php foreach($tickets as $ticket): ?>
+                                                <tr>
+                                                    <td><?= $ticket['id_ticket']; ?></td>
+                                                    <td><?= $ticket['object']; ?></td>
+                                                    <td><?= $ticket['statement']; ?></td>
+                                                    <td><?= $ticket['description']; ?></td>
+                                                    <td><?= $ticket['priority']; ?></td>
+                                                    <td><?= $ticket['category']; ?></td>
+                                                    <td><?= $ticket['date_creation']; ?></td>
+                                                    <td>
+                                                        <a href="#"?id=<?= $ticket['id_ticket'];?> class="btn btn-default"><i class="fa fa-comments-o" aria-hidden="true"></i></a>
+                                                        <a href="../lib/ticket_creation.php"?id=<?= $ticket['id_ticket'];?> class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                        <a href="?delete=<?= $ticket['id_ticket']; ?>&<?= csrf(); ?>" onclick="return confirm('Confirmez-vous la supression en cours ?');" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                    </td>
+                                                </tr>
+                                                <?php endforeach; ?>
+                                            </tbody>
+                                            </table>
+                                        </div>
+                                </div>
                             </div>
                             <!-- /.row -->
                             <div class="row">

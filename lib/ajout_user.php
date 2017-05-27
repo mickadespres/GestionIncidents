@@ -14,10 +14,8 @@ if((empty($_POST['nom']) || empty($_POST['prenom']) || empty($_POST['codePostal'
 {
     echo "<script>alert(\"Informations nécessaires pour créer le compte, vous allez être redirigé.\")</script>";
     setFlash("Aucun compte n'a été créé.","warning");
-}
-
-
-elseif(isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['codePostal']) && isset($_POST['motDePasse']) && isset($_POST['email']) && isset($_POST['role']))
+    
+}elseif(isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['codePostal']) && isset($_POST['motDePasse']) && isset($_POST['email']) && isset($_POST['role']))
 {
     $nom = htmlspecialchars($_POST['nom']);
     $prenom = htmlspecialchars($_POST['prenom']);
@@ -61,11 +59,13 @@ elseif(isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['codePost
     echo salut($count);
 
 }
-
-
-
 ?>
-
+<style>
+    .panel-body{
+        border-color:#E0FFD1;
+        background:#E0FFD1;
+        color:#fff; 
+    }</style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div id="page-wrapper">
     <div class="row">
@@ -78,65 +78,64 @@ elseif(isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['codePost
     <div class="row" style="margin: 0 auto;">
         <div class="col-lg-14">
             <div class="panel panel-success">
-                <div class="panel-heading" style="color:#000033;">
+                <div class="panel-heading">
                     <span class="glyphicon glyphicon-info-sign"></span> Veuillez renseigner les informations du nouvel utilisateur.
                 </div>
                 <!-- /.panel-heading-->
                 <div class="panel-body">
 
-                    <div class="container">
 
-                        <div class="row">
-                            <div class="col-md-5">
-                                <div class="input-group input-group">
-                                    <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user-circle" style="font-size:20px"></i><strong> Nom</strong></span> 
-                                    <input type="text" class="form-control" aria-describedby="sizing-addon1" style="font-size:16px" name="nom" placeholder="Nom de famille">
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="input-group">
-                                    <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-user-circle-o" style="font-size:20px"></i><strong> Prénom</strong></span>
-                                    <input type="text" class="form-control" aria-describedby="sizing-addon2" style="font-size:16px" name="prenom" placeholder="Prénom">
-                                </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="input-group input-group">
+                                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user-circle" style="font-size:20px"></i><strong> Nom</strong></span> 
+                                <input type="text" class="form-control" aria-describedby="sizing-addon1" style="font-size:16px" name="nom" placeholder="Nom de famille">
                             </div>
                         </div>
-                        <br><br>
-                        <div class="row">
-                            <div class="col-md-5">
-                                <div class="input-group input-group">
-                                    <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-paper-plane-o" style="font-size:19px"></i><strong> Code postal</strong></span>
-                                    <input type="text" class="form-control" aria-describedby="sizing-addon3" style="font-size:16px" name="codePostal" placeholder="Code postal">
-                                </div>  
-                            </div>
-                            <div class="col-md-5">
-                                <div class="input-group input-group">
-                                    <span class="input-group-addon" id="sizing-addon4"><i class="fa fa-key" style="font-size:19px"></i><strong> Mot de passe</strong></span>
-                                    <input type="password" class="form-control" aria-describedby="sizing-addon4" style="font-size:16px" name="motDePasse" placeholder="Mot de passe">
-                                </div>  
+                        <div class="col-md-5">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-user-circle-o" style="font-size:20px"></i><strong> Prénom</strong></span>
+                                <input type="text" class="form-control" aria-describedby="sizing-addon2" style="font-size:16px" name="prenom" placeholder="Prénom">
                             </div>
                         </div>
-                        <br><br>
-                        <div class="row">
-                            <div class="col-md-5">
-                                <div class="input-group input-group">
-                                    <span class="input-group-addon" id="sizing-addon5">
-                                        <i class="fa fa-at" style="font-size:20px"></i><strong> Email</strong></span>
-                                    <input type="email" class="form-control" aria-describedby="sizing-addon5" style="font-size:16px" name="email" placeholder="Adresse mail">
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="input-group">
-                                    <span class="input-group-addon" id="sizing-addon6"><i class="fa fa-flag-o" style="font-size:20px"></i><strong> Rôle</strong></span>
-                                    <input type="text" class="form-control" aria-describedby="sizing-addon6" style="font-size:16px" name="role" placeholder="Rôle utilisateur">
-                                </div>
+                    </div>
+                    <br><br>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="input-group input-group">
+                                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-paper-plane-o" style="font-size:19px"></i><strong> Code postal</strong></span>
+                                <input type="text" class="form-control" aria-describedby="sizing-addon3" style="font-size:16px" name="codePostal" placeholder="Code postal">
+                            </div>  
+                        </div>
+                        <div class="col-md-5">
+                            <div class="input-group input-group">
+                                <span class="input-group-addon" id="sizing-addon4"><i class="fa fa-key" style="font-size:19px"></i><strong> Mot de passe</strong></span>
+                                <input type="password" class="form-control" aria-describedby="sizing-addon4" style="font-size:16px" name="motDePasse" placeholder="Mot de passe">
+                            </div>  
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="input-group input-group">
+                                <span class="input-group-addon" id="sizing-addon5">
+                                    <i class="fa fa-at" style="font-size:20px"></i><strong> Email</strong></span>
+                                <input type="email" class="form-control" aria-describedby="sizing-addon5" style="font-size:16px" name="email" placeholder="Adresse mail">
                             </div>
                         </div>
-                        <br>
-                        <button class="btn btn-success" type="submit" name="ajouter" value="ajouter">Ajouter</button>
-                        </form>
-                </div>
+                        <div class="col-md-5">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="sizing-addon6"><i class="fa fa-flag-o" style="font-size:20px"></i><strong> Rôle</strong></span>
+                                <input type="text" class="form-control" aria-describedby="sizing-addon6" style="font-size:16px" name="role" placeholder="Rôle utilisateur">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <button class="btn btn-success" type="submit" name="ajouter" value="ajouter"><span class="glyphicon glyphicon-plus"></span><strong>  Ajouter</strong></button>
+                    </form>
             </div>
         </div>
+    </div>
     </div>
 </form>
 </body>

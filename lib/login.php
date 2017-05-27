@@ -65,11 +65,11 @@ if(isset($_POST['email']) && isset($_POST['password'])){
                         <style>span.glyphicon-dashboard {font-size: 8.0em;}</style>
                         <center><span class="glyphicon glyphicon-dashboard"></span></center>
                         <center><h1> Gestion Incidents </h1></center>
-                        <div class="login-panel panel panel-default" style="opacity:0.82">
+                        <div class="login-panel panel panel-default">
                             <div class="panel-heading">
                                 <center><h3 class="panel-title">Veuillez rentrer vos informations de connexion</h3></center>
                             </div>
-                            <div class="panel-body">
+                            <div class="panel-body" style="opacity:0.80">
                                 <center><?php echo notFlash('warning','Identifiants incorrects !');?></center>
                                 <form role="form">
                                     <fieldset>

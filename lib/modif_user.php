@@ -1,7 +1,8 @@
 <?php
+include 'session.php';
 include 'database.php';
+include 'form.php';
 
-include '../pages/header.php';
 if(!isset($auth)){
     if(!isset($_SESSION['Auth']['email'])){
         header('Location:../lib/login.php');
@@ -9,41 +10,33 @@ if(!isset($auth)){
     }
 }
 
-if(isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['codePostal']) && isset($_POST['motDePasse']) && isset($_POST['email']) && isset($_POST['role'])){
-    $nom = htmlspecialchars($_POST['nom']);
-    $prenom = htmlspecialchars($_POST['prenom']);
-    $codePostal = htmlspecialchars($_POST['codePostal']);
-    $password = sha1($_POST['motDePasse']);
-    $email = htmlspecialchars($_POST['email']);
-    $role = htmlspecialchars($_POST['role']);
-    $db -> setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
-    $req = $db->prepare('INSERT INTO gi_user (name, firstname, postal_code, email, password, name_right) VALUES (?,?,?,?,?,?)');
-    $params = array(
-        $nom, 
-        $prenom,
-        $codePostal,
-        $email,
-        $password,
-        $role
-    );
-    $req -> execute($params);
-    $id = $db->LastInsertId();
-    setFlash("L'utilisateur n°$id a bien été ajouté");}
+$select = $db->query('SELECT id_user, name, firstname FROM gi_user ORDER BY name ASC');
+$resolvers = $select->fetchAll();
+$resolvers_list = array();
+foreach($resolvers as $resolver){
+    $resolvers_list[$resolver['id_user']] = $resolver['firstname'].' '.$resolver['name'];
+}
+require_once('../pages/header.html');
 ?>
+<style>
+    .panel-body{
+        border-color:#FAFAD2;
+        background:#FAFAD2;
+        color:#fff; 
+    }</style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header" style="color:#000033;"><i class="fa fa-user-plus" style="font-size:38px"></i></i> Modification des informations</h1>
+            <h1 class="page-header" style="color:#000033;"><i class="fa fa-cog" style="font-size:38px"></i></i> Modification des informations</h1><?php echo flash();?>
     </div>
 </div>
-<?php echo flash();?>
-<form class="form-horizontal" role="form" action="#" method="post">
+<form class="form-horizontal" role="form" action="modif_user1.php" method="GET">
     <div class="row" style="margin: 0 auto;">
         <div class="col-lg-14">
-            <div class="panel panel-success">
+            <div class="panel panel-warning">
                 <div class="panel-heading" style="color:#000033;">
-                    <span class="glyphicon glyphicon-info-sign"></span> Veuillez renseigner les informations du nouvel utilisateur.
+                    <span class="glyphicon glyphicon-pencil"></span> Choisissez un compte utilisateur à modifier.
                 </div>
                 <!-- /.panel-heading-->
                 <div class="panel-body">
@@ -53,56 +46,16 @@ if(isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['codePostal']
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="input-group input-group">
-                                    <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user-circle" style="font-size:20px"></i><strong> Nom</strong></span> 
-                                    <input type="text" class="form-control" aria-describedby="sizing-addon1" style="font-size:16px" name="nom" placeholder="Nom de famille">
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="input-group">
-                                    <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-user-circle-o" style="font-size:20px"></i><strong> Prénom</strong></span>
-                                    <input type="text" class="form-control" aria-describedby="sizing-addon2" style="font-size:16px" name="prenom" placeholder="Prénom">
-                                </div>
+                                    <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user-circle" style="font-size:20px"></i><strong> Compte de </strong></span> 
+                                    <?= select('resolver',$resolvers_list);?>
+                                </div><br>
+                                <button type="submit" class="btn btn-warning" href="modif_user1.php?resolver=<?php= $resolvers['id_user']; ?>"><span class="glyphicon glyphicon-pencil"></span> Modifier le compte</a>
                             </div>
                         </div>
-                        <br><br>
-                        <div class="row">
-                            <div class="col-md-5">
-                                <div class="input-group input-group">
-                                    <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-paper-plane-o" style="font-size:19px"></i><strong> Code postal</strong></span>
-                                    <input type="text" class="form-control" aria-describedby="sizing-addon3" style="font-size:16px" name="codePostal" placeholder="Code postal">
-                                </div>  
-                            </div>
-                            <div class="col-md-5">
-                                <div class="input-group input-group">
-                                    <span class="input-group-addon" id="sizing-addon4"><i class="fa fa-key" style="font-size:19px"></i><strong> Mot de passe</strong></span>
-                                    <input type="password" class="form-control" aria-describedby="sizing-addon4" style="font-size:16px" name="motDePasse" placeholder="Mot de passe">
-                                </div>  
-                            </div>
-                        </div>
-                        <br><br>
-                        <div class="row">
-                            <div class="col-md-5">
-                                <div class="input-group input-group">
-                                    <span class="input-group-addon" id="sizing-addon5">
-                                        <i class="fa fa-at" style="font-size:20px"></i><strong> Email</strong></span>
-                                    <input type="text" class="form-control" aria-describedby="sizing-addon5" style="font-size:16px" name="email" placeholder="@dresse m@il">
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="input-group">
-                                    <span class="input-group-addon" id="sizing-addon6"><i class="fa fa-flag-o" style="font-size:20px"></i><strong>         Rôle</strong></span>
-                                    <input type="text" class="form-control" aria-describedby="sizing-addon6" style="font-size:16px" name="role" placeholder="Rôle utilisateur">
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <button class="btn btn-success" type="submit" name="ajouter" value="ajouter">Ajouter</button>
-                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </form>
-</body>
-</html>
-
+</div>

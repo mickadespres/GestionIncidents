@@ -37,7 +37,7 @@ if(!isset($auth)){
                 <div class="col-lg-4">
                     <div class="panel panel-yellow">
                         <div class="panel-heading">
-                            <center><strong><i class="fa fa-lg fa-spinner" aria-hidden="true"></i>  - Modifier le profil d'un utilisateur</strong></center>
+                            <center><strong><i class="fa fa-lg fa-pencil" aria-hidden="true"></i>  - Modifier le profil d'un utilisateur</strong></center>
                         </div>
                         <div class="panel-body">
                             <p>Vous permet de modifier les paramètres du compte d'un utilisateur déclaré au sein de l'application. (Prénom, Mot de passe, Rôle,...)</p>

@@ -268,7 +268,10 @@
                                 <a style="color:#000033;" href="../pages/cible.php"><i class="fa fa-dashboard fa-fw"></i><strong> Dashboard</strong></a>
                             </li>
                             <li>
-                                <a style="color:#000033;" href="../lib/ticket.php"><i class="fa fa-ticket fa-fw"></i><strong> Listing</strong></a>
+                                <a style="color:#000033;" href="../pages/listing_tickets.php"><i class="fa fa-ticket fa-fw"></i><strong> Listing</strong></a>
+                            </li>
+                            <li>
+                                <a style="color:#000033;" href="../pages/ticket_creation.php"><i class="fa fa-edit fa-fw"></i><strong> New ticket</strong></a>
                             </li>
                             <li>
                                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
@@ -342,20 +345,17 @@
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
-                            <li class="active">
+                            <li>
                                 <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a class="active" href="blank.html">Blank Page</a>
+                                        <a href="blank.html">Blank Page</a>
                                     </li>
                                     <li>
                                         <a href="login.html">Login Page</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
-                            </li>
-                            <li>
-                                <a style="color:#000033;" href="../pages/ticket_creation.php"><i class="fa fa-edit fa-fw"></i><strong> New ticket</strong></a>
                             </li>
                         </ul>
                     </div>
