@@ -6,7 +6,7 @@ $idUser = $_POST['id_user'];
 $select = $db->query("SELECT password FROM gi_user WHERE id_user = '$idUser'");
 $passwordDb = $select->Fetch();
 if(
-    ((isset($_POST['nom'])) && ($_POST['nom'] != "")) && ((isset($_POST['prenom'])) && ($_POST['prenom'] != "")) &&  ((isset($_POST['codePostal'])) && ($_POST['codePostal'] != "")) && ((isset($_POST['motDePasse'])) && ($_POST['motDePasse'] != "") && ($passwordDb == $_POST['motDePasse'])) && ((isset($_POST['email']) && ($_POST['email'] != "")) && ((isset($_POST['role']) && ($_POST['role'] != "")))))
+    ((isset($_POST['nom'])) && ($_POST['nom'] != "")) && ((isset($_POST['prenom'])) && ($_POST['prenom'] != "")) &&  ((isset($_POST['codePostal'])) && ($_POST['codePostal'] != "")) && ((isset($_POST['motDePasse'])) && ($_POST['motDePasse'] != "") && ($passwordDb['password'] == $motDePasse)) && ((isset($_POST['email']) && ($_POST['email'] != "")) && ((isset($_POST['role']) && ($_POST['role'] != "")))))
 {
 
     try

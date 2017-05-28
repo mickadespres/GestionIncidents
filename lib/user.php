@@ -16,6 +16,12 @@ $role = $_SESSION['Auth']['name_right'];
         </div>
     </div>
 
+    <style>
+    .panel-body{
+        border-color:#e6fff7;
+        background:#e6fff7;
+        color:#fff; 
+    }</style>
     <div class="row" style="margin: 0 auto;">
         <div class="col-lg-14">
             <div class="panel panel-success">
