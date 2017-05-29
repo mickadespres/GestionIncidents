@@ -114,8 +114,6 @@ require_once('header.html');
     </div>
     <!-- /#wrapper -->
 
-
-
 </body>
 
 </html>

@@ -139,7 +139,6 @@ require_once('header.html');
                                                 </div>
                                             </div>
 
-                                            <a href="../pages/ticket_creation.php"?id=<?= $ticket['id_ticket'];?> class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                             <a href="?delete=<?= $ticket['id_ticket']; ?>&<?= csrf(); ?>" onclick="return confirm('Confirmez-vous la supression en cours ?');" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
                                         </td>
                                     </tr>

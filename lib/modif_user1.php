@@ -78,7 +78,7 @@ color:#fff;
                             <div class="col-md-5">
                                 <div class="input-group input-group">
                                     <span class="input-group-addon" id="sizing-addon4"><i class="fa fa-key" style="font-size:19px"></i><strong> Mot de passe</strong></span>
-                                    <input type="password" class="form-control" aria-describedby="sizing-addon4" style="font-size:16px" name="motDePasse" placeholder="Mot de passe" value="<?php echo $infos['password'];?>">
+                                    <input type="password" class="form-control" aria-describedby="sizing-addon4" style="font-size:16px" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" name="motDePasse" placeholder="Mot de passe" value="<?php echo $infos['password'];?>">
                                 </div>  
                             </div>
                         </div>
@@ -88,7 +88,7 @@ color:#fff;
                                 <div class="input-group input-group">
                                     <span class="input-group-addon" id="sizing-addon5">
                                         <i class="fa fa-at" style="font-size:20px"></i><strong> Email</strong></span>
-                                    <input type="text" class="form-control" aria-describedby="sizing-addon5" style="font-size:16px" name="email" placeholder="@dresse m@il" value="<?php echo $infos['email'];?>">
+                                    <input type="text" class="form-control" aria-describedby="sizing-addon5" style="font-size:16px" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" placeholder="@dresse m@il" value="<?php echo $infos['email'];?>">
                                 </div>
                             </div>
                             <div class="col-md-5">

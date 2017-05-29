@@ -18,8 +18,8 @@ $role = $_SESSION['Auth']['name_right'];
 
     <style>
     .panel-body{
-        border-color:#e6fff7;
-        background:#e6fff7;
+        border-color:#e6ffcc;
+        background:#e6ffcc;
         color:#fff; 
     }</style>
     <div class="row" style="margin: 0 auto;">
@@ -38,13 +38,13 @@ $role = $_SESSION['Auth']['name_right'];
                                 <div class="col-md-5">
                                     <div class="input-group input-group">
                                         <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user-circle" style="font-size:20px"></i><strong> Nom</strong></span> 
-                                        <input type="text" class="form-control" aria-describedby="sizing-addon1" style="font-size:16px" value="<?= $nom; ?>" disabled>
+                                        <input type="text" class="form-control" aria-describedby="sizing-addon1" style="font-size:16px" value="<?= $nom; ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-5">
                                     <div class="input-group">
                                         <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-user-circle-o" style="font-size:20px"></i><strong> Prénom</strong></span>
-                                        <input type="text" class="form-control" aria-describedby="sizing-addon2" style="font-size:16px" value="<?= $prenom;?>" disabled>
+                                        <input type="text" class="form-control" aria-describedby="sizing-addon2" style="font-size:16px" value="<?= $prenom;?>" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -53,13 +53,13 @@ $role = $_SESSION['Auth']['name_right'];
                                 <div class="col-md-5">
                                     <div class="input-group input-group">
                                         <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-paper-plane-o" style="font-size:19px"></i><strong> Code postal</strong></span>
-                                        <input type="text" class="form-control" aria-describedby="sizing-addon3" style="font-size:16px" value="<?= $codePostal;?>" disabled>
+                                        <input type="text" class="form-control" aria-describedby="sizing-addon3" style="font-size:16px" value="<?= $codePostal;?>" readonly>
                                     </div>  
                                 </div>
                                 <div class="col-md-5">
                                     <div class="input-group input-group">
                                         <span class="input-group-addon" id="sizing-addon4"><i class="fa fa-tag" style="font-size:19px"></i><strong>      Identifiant</strong></span>
-                                        <input type="text" class="form-control" aria-describedby="sizing-addon4" style="font-size:16px" value="<?= $identifiant;?>" disabled>
+                                        <input type="text" class="form-control" aria-describedby="sizing-addon4" style="font-size:16px" value="<?= $identifiant;?>" readonly>
                                     </div>  
                                 </div>
                             </div>
@@ -69,13 +69,13 @@ $role = $_SESSION['Auth']['name_right'];
                                     <div class="input-group input-group">
                                         <span class="input-group-addon" id="sizing-addon5">
                                             <i class="fa fa-at" style="font-size:20px"></i><strong> Email</strong></span>
-                                        <input type="text" class="form-control" aria-describedby="sizing-addon5" style="font-size:16px" value="<?= $email;?>" disabled>
+                                        <input type="text" class="form-control" aria-describedby="sizing-addon5" style="font-size:16px" value="<?= $email;?>" readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-5">
                                     <div class="input-group">
                                         <span class="input-group-addon" id="sizing-addon6"><i class="fa fa-flag-o" style="font-size:20px"></i><strong>         Rôle</strong></span>
-                                        <input type="text" class="form-control" aria-describedby="sizing-addon6" style="font-size:16px" value="<?= $role;?>" disabled>
+                                        <input type="text" class="form-control" aria-describedby="sizing-addon6" style="font-size:16px" value="<?= $role;?>" readonly>
                                     </div>
                                 </div>
                             </div>
