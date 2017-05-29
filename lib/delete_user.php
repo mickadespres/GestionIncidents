@@ -1,4 +1,5 @@
 <?php
+include '../lib/form.php';
 include '../lib/session.php';
 include '../lib/database.php';
 include '../lib/auth.php';
@@ -36,12 +37,24 @@ require_once('../pages/header.html');
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header" style="color:#000033;"><span class="glyphicon glyphicon-remove-sign" style="font-size:38px"></span> Suppression d'un utilisateur</h1><?php echo flash();?>
+
+            <form class="form-horizontal" role="form" action="#" method="post">
+                <select id="nombreEntree" onchange="choixNombre">
+                    <option value="5" selected>5</option> 
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                </select>
+            </form>
+
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-danger">
                         <div class="panel-heading"><span class="glyphicon glyphicon-info-sign"></span>
                             Choisissez un compte utilisateur à supprimer.  
                         </div>
+
                         <style>
                             #divConteneur{
                                 min-height:475px;
