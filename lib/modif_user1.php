@@ -72,13 +72,13 @@ color:#fff;
                             <div class="col-md-5">
                                 <div class="input-group input-group">
                                     <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-paper-plane-o" style="font-size:19px"></i><strong> Code postal</strong></span>
-                                    <input type="text" class="form-control" aria-describedby="sizing-addon3" style="font-size:16px" name="codePostal" placeholder="Code postal" value="<?php echo $infos['postal_code'];?>">
+                                    <input type="text" class="form-control" aria-describedby="sizing-addon3" style="font-size:16px" name="codePostal" pattern="[0-9]{5}" placeholder="Code postal" value="<?php echo $infos['postal_code'];?>">
                                 </div>  
                             </div>
                             <div class="col-md-5">
                                 <div class="input-group input-group">
                                     <span class="input-group-addon" id="sizing-addon4"><i class="fa fa-key" style="font-size:19px"></i><strong> Mot de passe</strong></span>
-                                    <input type="password" class="form-control" aria-describedby="sizing-addon4" style="font-size:16px" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" name="motDePasse" placeholder="Mot de passe" value="<?php echo $infos['password'];?>">
+                                    <input type="password" class="form-control" aria-describedby="sizing-addon4" style="font-size:16px" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" name="motDePasse" placeholder="Mot de passe" value="<?php echo $infos['password'];?>">
                                 </div>  
                             </div>
                         </div>

@@ -38,7 +38,7 @@ require_once('../pages/header.html');
         <div class="col-lg-12">
             <h1 class="page-header" style="color:#000033;"><span class="glyphicon glyphicon-remove-sign" style="font-size:38px"></span> Suppression d'un utilisateur</h1><?php echo flash();?>
 
-            <form class="form-horizontal" role="form" action="#" method="post">
+            <!--<form class="form-horizontal" role="form" action="#" method="post">
                 <select id="nombreEntree" onchange="choixNombre">
                     <option value="5" selected>5</option> 
                     <option value="10">10</option>
@@ -46,7 +46,7 @@ require_once('../pages/header.html');
                     <option value="25">25</option>
                     <option value="50">50</option>
                 </select>
-            </form>
+            </form>-->
 
             <div class="row">
                 <div class="col-lg-12">

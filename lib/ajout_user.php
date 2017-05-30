@@ -104,7 +104,7 @@ if((empty($_POST['nom']) || empty($_POST['prenom']) || empty($_POST['codePostal'
                         <div class="col-md-5">
                             <div class="input-group input-group">
                                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-paper-plane-o" style="font-size:19px"></i><strong> Code postal</strong></span>
-                                <input type="text" class="form-control" aria-describedby="sizing-addon3" style="font-size:16px" name="codePostal" placeholder="Code postal">
+                                <input type="text" class="form-control" aria-describedby="sizing-addon3" style="font-size:16px" name="codePostal" pattern="[0-9]{5}" placeholder="Code postal">
                             </div>  
                         </div>
                         <div class="col-md-5">
