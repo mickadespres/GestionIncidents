@@ -20,6 +20,7 @@ if((empty($_POST['nom']) || empty($_POST['prenom']) || empty($_POST['codePostal'
     $nom = htmlspecialchars($_POST['nom']);
     $prenom = htmlspecialchars($_POST['prenom']);
     $email = htmlspecialchars($_POST['email']);
+<<<<<<< HEAD
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
     $verif = $db->query("SELECT COUNT(*) known FROM gi_user WHERE name='$nom' AND firstname='$prenom' OR email='$email'");
     $result = $verif->fetch(PDO::FETCH_ASSOC);
@@ -59,6 +60,20 @@ if((empty($_POST['nom']) || empty($_POST['prenom']) || empty($_POST['codePostal'
     echo salut($count);
 
 }
+=======
+    $role = htmlspecialchars($_POST['role']);
+    $db -> setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+    $req = $db->prepare('INSERT INTO gi_user (name, firstname, postal_code, email, password, name_right) VALUES (?,?,?,?,?,?)');
+    $params = array(
+        $nom,
+        $prenom,
+        $codePostal,
+        $email,
+        $password,
+        $role
+    );
+    $req -> execute($params);}
+>>>>>>> origin/master
 ?>
 <style>
     .panel-body{
@@ -85,6 +100,7 @@ if((empty($_POST['nom']) || empty($_POST['prenom']) || empty($_POST['codePostal'
                 <div class="panel-body">
 
 
+<<<<<<< HEAD
                     <div class="row">
                         <div class="col-md-5">
                             <div class="input-group input-group">
@@ -96,6 +112,35 @@ if((empty($_POST['nom']) || empty($_POST['prenom']) || empty($_POST['codePostal'
                             <div class="input-group">
                                 <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-user-circle-o" style="font-size:20px"></i><strong> Prénom</strong></span>
                                 <input type="text" class="form-control" aria-describedby="sizing-addon2" style="font-size:16px" name="prenom" placeholder="Prénom">
+=======
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="input-group input-group">
+                                    <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user-circle" style="font-size:20px"></i><strong> Nom</strong></span>
+                                    <input type="text" class="form-control" aria-describedby="sizing-addon1" style="font-size:16px" name="nom" placeholder="Nom de famille">
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-user-circle-o" style="font-size:20px"></i><strong> Prénom</strong></span>
+                                    <input type="text" class="form-control" aria-describedby="sizing-addon2" style="font-size:16px" name="prenom" placeholder="Prénom">
+                                </div>
+                            </div>
+                        </div>
+                        <br><br>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="input-group input-group">
+                                    <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-paper-plane-o" style="font-size:19px"></i><strong> Code postal</strong></span>
+                                    <input type="text" class="form-control" aria-describedby="sizing-addon3" style="font-size:16px" name="codePostal" placeholder="Code postal">
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="input-group input-group">
+                                    <span class="input-group-addon" id="sizing-addon4"><i class="fa fa-key" style="font-size:19px"></i><strong> Mot de passe</strong></span>
+                                    <input type="password" class="form-control" aria-describedby="sizing-addon4" style="font-size:16px" name="motDePasse" placeholder="Mot de passe">
+                                </div>
+>>>>>>> origin/master
                             </div>
                         </div>
                     </div>
@@ -140,4 +185,3 @@ if((empty($_POST['nom']) || empty($_POST['prenom']) || empty($_POST['codePostal'
 </form>
 </body>
 </html>
-
