@@ -1,5 +1,4 @@
 <?php
-
 //APPEL
 include '../lib/form.php';
 include '../lib/session.php';
@@ -26,7 +25,7 @@ foreach($_POST["choix"] as $check)
 }
 
 //TICKET A L'ETAT OUVERT
-$statement = 'ouvert';
+$statement = 'Ouvert';
 
 //PRIORITE DU PROBLEME
 $priority = htmlspecialchars($_POST['priority']);

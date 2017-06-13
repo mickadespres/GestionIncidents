@@ -10,9 +10,6 @@ $identifiant = $_SESSION['Auth']['id_user'];
 $email = $_SESSION['Auth']['email']; 
 $role = $_SESSION['Auth']['name_right'];
 
-$email = $_SESSION['Auth']['email'];
-$role = $_SESSION['Auth']['name_right'];
-
 include '../pages/header.html';
 ?>
 

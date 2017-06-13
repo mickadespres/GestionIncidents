@@ -121,18 +121,25 @@ if((empty($_POST['nom']) || empty($_POST['prenom']) || empty($_POST['codePostal'
                             <div class="col-md-5">
                                 <div class="input-group">
                                     <span class="input-group-addon" id="sizing-addon6"><i class="fa fa-flag-o" style="font-size:20px"></i><strong> Rôle</strong></span>
-                                    <input type="text" class="form-control" aria-describedby="sizing-addon6" style="font-size:16px" name="role" placeholder="Rôle utilisateur">
-                                </div>
+                                    <select class="form-control" aria-describedby="sizing-addon6" style="font-size:16px" name="role">
+                                        <option value="Administrateur">Administrateur</option>
+                                        <option value="Résolveur">Résolveur</option>
+                                        <option value="Utilisateur">Utilisateur</option>
+                                    </select>
+                                    </br>
                             </div>
                         </div>
-                        <br>
-                        <button class="btn btn-success" type="submit" name="ajouter" value="ajouter"><span class="glyphicon glyphicon-plus"></span><strong>  Ajouter</strong></button>
-                        </form>
+                    </div>
                 </div>
-            </div>
+                <br>
+                <button class="btn btn-success" type="submit" name="ajouter" value="ajouter"><span class="glyphicon glyphicon-plus"></span><strong>  Ajouter</strong></button>
+                </form>
         </div>
     </div>
     </div>
+</div>
+</div>
 </form>
+<div class='alert alert-info'><i class="fa fa-info" aria-hidden="true"></i> Note : Les rôles possibles sont "Utilisateur", "Résolveur" ou "Administrateur".</div>
 </body>
 </html>

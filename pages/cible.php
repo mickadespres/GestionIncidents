@@ -14,7 +14,7 @@ include 'header.html';
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header" style="color:#000033;">Dashboard</h1><?php echo flash();?>
+                    <h1 class="page-header" style="color:#000033;"> Dashboard</h1><?php echo flash();?>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>

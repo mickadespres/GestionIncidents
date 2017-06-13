@@ -25,11 +25,11 @@ while ($infos = $req->fetch())
 ?>
 
 <style>
-.panel-body{
-border-color:#FAFAD2;
-background:#FAFAD2;
-color:#fff; 
-}</style>
+    .panel-body{
+        border-color:#FAFAD2;
+        background:#FAFAD2;
+        color:#fff; 
+    }</style>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div id="page-wrapper">
@@ -39,7 +39,7 @@ color:#fff;
     </div>
 </div>
 <form class="form-horizontal" role="form" action="modif_user2.php" method="post">
-      
+
     <div class="row" style="margin: 0 auto;">
         <div class="col-lg-14">
             <div class="panel panel-warning">
@@ -50,7 +50,7 @@ color:#fff;
                 <div class="panel-body">
 
                     <div class="container">
-                        
+
                         <input type='hidden' name='id_user' value="<?php echo $infos['id_user'];?>">
 
                         <div class="row">
@@ -88,15 +88,32 @@ color:#fff;
                                 <div class="input-group input-group">
                                     <span class="input-group-addon" id="sizing-addon5">
                                         <i class="fa fa-at" style="font-size:20px"></i><strong> Email</strong></span>
-                                    <input type="text" class="form-control" aria-describedby="sizing-addon5" style="font-size:16px" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"" name="email" placeholder="@dresse m@il" value="<?php echo $infos['email'];?>">
+                                    <input type="text" class="form-control" aria-describedby="sizing-addon5" style="font-size:16px" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" placeholder="@dresse m@il" value="<?php echo $infos['email'];?>">
                                 </div>
-                            </div>
-                            <div class="col-md-5">
+                            </div><?php
+
+ $rang = $infos['name_right'];
+ $admin = ($rang == 'Administrateur') ? 'selected' : '';
+ $resol = ($rang == 'Résolveur') ? 'selected' : '';
+ $user = ($rang == 'Utilisateur') ? 'selected' : '';
+ ;
+ echo '<div class="col-md-5">
                                 <div class="input-group">
                                     <span class="input-group-addon" id="sizing-addon6"><i class="fa fa-flag-o" style="font-size:20px"></i><strong> Rôle</strong></span>
-                                    <input type="text" class="form-control" aria-describedby="sizing-addon6" style="font-size:16px" name="role" placeholder="Rôle utilisateur" value="<?php echo $infos['name_right'];?>">
-                                </div>
+                                    <select class="form-control" aria-describedby="sizing-addon6" style="font-size:16px" name="role">
+                                        <option '.$admin.' value="Administrateur">Administrateur</option>
+                                        <option '.$resol.' value="Résolveur">Résolveur</option>
+                                        <option '.$user.' value="Utilisateur">Utilisateur</option>
+                                    </select>
+                                    </br>
                             </div>
+                        </div>';
+                            ?>
+
+
+
+
+
                         </div>
                         <br>
                         <button class="btn btn-warning" type="submit" name="ajouter" value="ajouter"><span class="glyphicon glyphicon-pencil"></span><strong> Modifier</strong></button>
@@ -107,13 +124,14 @@ color:#fff;
         <?php
 } 
 
-// Fin de la boucle pour l'affichage des donnée dans la base de donnée
+// Fin de la boucle pour l'affichage des donnée dans la base de données
 $req->closeCursor();
 
 
         ?>
     </div>
 </form>
+<div class='alert alert-info'><i class="fa fa-info" aria-hidden="true"></i> Note : Les rôles possibles sont "Utilisateur", "Résolveur" ou "Administrateur".</div>
 </body>
 </html>
 

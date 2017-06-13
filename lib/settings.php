@@ -1,14 +1,18 @@
 <?php
 include 'session.php';
-include '../pages/header.html';
-include 'database.php';
 
 if(!isset($auth)){
     if(!isset($_SESSION['Auth']['email'])){
         header('Location:../lib/login.php');
         die();
     }
+    elseif($_SESSION['Auth']['name_right'] != "Administrateur"){
+        header('Location:../pages/cible.php');
+        die();
+    }
 }
+include '../pages/header.html';
+include 'database.php';
 ?>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

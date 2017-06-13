@@ -31,22 +31,22 @@ $users = $select->fetchALL();
 
 require_once('../pages/header.html');
 ?>
+<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="../pages/mon_script.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+<style>
+table.dataTable thead .sorting, 
+table.dataTable thead .sorting_asc, 
+table.dataTable thead .sorting_desc {
+    background : none;
+}</style>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header" style="color:#000033;"><span class="glyphicon glyphicon-remove-sign" style="font-size:38px"></span> Suppression d'un utilisateur</h1><?php echo flash();?>
-
-            <!--<form class="form-horizontal" role="form" action="#" method="post">
-                <select id="nombreEntree" onchange="choixNombre">
-                    <option value="5" selected>5</option> 
-                    <option value="10">10</option>
-                    <option value="20">20</option>
-                    <option value="25">25</option>
-                    <option value="50">50</option>
-                </select>
-            </form>-->
 
             <div class="row">
                 <div class="col-lg-12">
@@ -55,29 +55,18 @@ require_once('../pages/header.html');
                             Choisissez un compte utilisateur à supprimer.  
                         </div>
 
-                        <style>
-                            #divConteneur{
-                                min-height:475px;
-                                height:475px;/*pour IE qui comprend rien, et qui ne reconnait pas min-height, mais qui comprend mal height*/
-                                min-width:1030px;
-                                width:1030px;/*pour IE qui comprend rien*/
-                                overflow:scroll;/*pour activer les scrollbarres*/
-                            }
-                        </style>
-
-                        <div id="divConteneur">
                             <!-- /.panel-heading -->
                             <div class="panel-body">
-                                <table width="100%" class="table table-striped table-bordered table-hover" id="">
+                                <table width="100%" class="table table-striped table-bordered table-hover" id="example">
                                     <thead>
                                         <tr>
-                                            <th><center>N°</center></th>
-                                            <th><center>Nom</center></th>
-                                            <th><center>Prénom</center></th>
-                                            <th><center>Code postal</center></th>
-                                            <th><center>Adresse électronique</center></th>
-                                            <th><center>Droits</center></th>
-                                            <th><center>Action</center></th>
+                                            <th>N°</th>
+                                            <th>Nom</th>
+                                            <th>Prénom</th>
+                                            <th>Code postal</th>
+                                            <th>Adresse électronique</th>
+                                            <th>Droits</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>

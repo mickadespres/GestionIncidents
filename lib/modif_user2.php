@@ -30,7 +30,7 @@ if(
     }
     $req->closeCursor();  
     $id = $_POST['id_user'];
-    setFlash("Le compte n°$id a bien été modifié !","warning");
+    setFlash("Le compte n°$id a bien été modifié !","success");
     header('Location:../lib/modif_user.php');
     //var_dump($passwordDb);
     //var_dump($_POST['motDePasse']);
