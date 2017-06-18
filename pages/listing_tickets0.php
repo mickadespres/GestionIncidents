@@ -5,8 +5,9 @@ include '../lib/database.php';
 include '../lib/auth.php';
 
 
+
 /**
-Supression
+Suppression
 **/
 if(isset($_GET['delete']) && $_SESSION['Auth']['name_right'] == "Administrateur"){
     checkCsrf();
@@ -14,7 +15,7 @@ if(isset($_GET['delete']) && $_SESSION['Auth']['name_right'] == "Administrateur"
     $id = $db->quote($_GET['delete']);
     $db->query("UPDATE gi_ticket SET statement='Fermé' WHERE id_ticket=$id");
     setFlash("Le ticket n°$idflash a bien été clôturé !");
-    header('Location:../pages/listing_tickets.php');
+    header('Location:..pages/listing_tickets.php');
     die();
 }elseif(isset($_GET['delete']) && $_SESSION['Auth']['name_right'] != "Administrateur"){
     setFlash("Vous n'avez pas les autorisations requises pour clôre le ticket.","warning");
@@ -27,6 +28,8 @@ Tickets
 
 $select = $db->query('SELECT id_ticket, id_user, id_resolver, category, id_device, object, statement, description, priority, date_creation, date_resolution FROM gi_ticket');
 $tickets = $select->fetchALL();
+
+$cpt = 0;
 
 require_once('header.html');
 
@@ -88,8 +91,8 @@ table.dataTable thead .sorting_desc {
 
                                         <?php
 
-    $req = $db->query("SELECT content, name, firstname, time FROM gi_comment WHERE id_ticket = '$id'");
-                                                $res = $req->fetchALL();?>
+                                    $req = $db->query("SELECT content, name, firstname, time FROM gi_comment WHERE id_ticket = '$id'");
+                                    $res = $req->fetchALL();?>
 
 
                                         <!-- Modal -->
@@ -103,7 +106,6 @@ table.dataTable thead .sorting_desc {
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-
 
                                                         <?php foreach($res as $comment): ?>
                                                         <div class="panel panel-info">
@@ -119,21 +121,23 @@ table.dataTable thead .sorting_desc {
                                                         </div>
                                                         <?php endforeach; ?>
 
-                                                        <div class="form-group" action="#" role="form">
+                                                        <?php $cpt++;?>
+                                                      <form role="form" action="" method="POST">
                                                             <textarea class="form-control" rows="3" placeholder="Ajoutez un commentaire" name="comment-popup"></textarea>
-                                                            <?php
+                                                            <button class="btn btn-primary" type="submit">Valider</button>
+                                                            <?php if($cpt == ($id-2)){
                                                             if (isset($_POST['comment-popup'])) {
                                                                 $req = $db->prepare('INSERT INTO gi_comment(id_ticket,content,name,firstname) VALUES (?,?,?,?)');
-                                                                $req->execute(array($_POST['comment-popup'])) or die('Erreur');
+                                                                $req->execute(array($id,$_POST['comment-popup'],"dilmi","roman")) or die('Erreur');
                                                             }
+                                                          }
                                                             ?>
-                                                        </div>
+                                                        </form>
 
 
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                                                        <button type="button" class="btn btn-primary" type="submit">Valider</button>
                                                     </div>
                                                 </div>
                                             </div>
